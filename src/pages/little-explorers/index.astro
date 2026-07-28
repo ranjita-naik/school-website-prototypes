@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/LittleExplorersLayout.astro";
+import { Image } from "astro:assets";
+import scienceExperiment from "../../assets/photos/shared/science-experiment-01.jpg";
+import schoolGarden from "../../assets/photos/shared/school-garden-01.jpg";
+import playgroundGround from "../../assets/photos/shared/playground-ground-01.jpg";
+import computerLab from "../../assets/photos/shared/computer-lab-01.jpg";
+import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
+import buildingTrees from "../../assets/photos/shared/building-trees-01.jpg";
+
+const destinations = [
+  { name: "The Story", page: "About the School", img: assemblyPrayer, alt: "Students gathered for morning assembly", blurb: "How Green Valley began.", style: "top: 8%; left: 8%;", href: "/little-explorers/about/" },
+  { name: "The Classrooms", page: "Academics", img: scienceExperiment, alt: "A teacher and student conducting a science experiment", blurb: "Where questions turn into experiments.", style: "top: 4%; left: 38%;", href: "/little-explorers/academics/" },
+  { name: "The Playground", page: "Student Life", img: playgroundGround, alt: "A green sports field used for games", blurb: "Running, kicking, cheering.", style: "top: 12%; left: 68%;", href: "/little-explorers/student-life/" },
+  { name: "The Walk Around Campus", page: "Campus & Facilities", img: schoolGarden, alt: "The school garden tended by students", blurb: "Muddy hands and growing things.", style: "top: 45%; left: 15%;", href: "/little-explorers/campus/" },
+  { name: "The Reception Office", page: "Admissions", img: computerLab, alt: "An interior room at the school", blurb: "How to enquire and visit.", style: "top: 50%; left: 50%;", href: "/little-explorers/admissions/" },
+  { name: "The Front Desk", page: "Contact", img: buildingTrees, alt: "A school building seen through lush green trees", blurb: "Reach us, or plan a visit.", style: "top: 42%; left: 80%;", href: "/little-explorers/contact/" },
+];
+---
+
+<Layout
+  title="Green Valley Matriculation School — Little Explorers"
+  description="Green Valley Matriculation School, Nagercoil — a world of learning for Kindergarten through Class 10. Prototype concept: Little Explorers."
+>
+  <section class="hero" id="top">
+    <p class="eyebrow">Nagercoil, Tamil Nadu · LKG – Class 10</p>
+    <h1>A world of learning begins here.</h1>
+    <p class="hero-lede">Every part of the school is a destination. Follow the path and see where curiosity takes you.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#map">Start Exploring</a>
+      <a class="btn btn-ghost" href="/little-explorers/admissions/">Admissions</a>
+    </div>
+  </section>
+
+  <section class="map-section" id="map">
+    <div class="map-frame">
+      <svg class="map-path" viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M8,5.6 C20,-2 28,-2 38,2.8 C50,8 58,4 68,8.4 C55,20 25,15 15,31.5 C25,40 40,38 50,35 C62,32 72,28 80,29.4" />
+      </svg>
+      <ul class="map-stops">
+        {destinations.map((d) => (
+          <li class="map-stop" style={d.style}>
+            <a class="stop-bubble" href={d.href} aria-label={`${d.page} — ${d.blurb}`}>
+              <Image src={d.img} alt="" width={200} height={200} />
+            </a>
+            <span class="stop-label" aria-hidden="true">{d.name}</span>
+            <div class="stop-card" aria-hidden="true">
+              <strong>{d.page}</strong>
+              <p>{d.blurb}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p class="map-hint">Tap a stop to step inside.</p>
+  </section>
+
+  <section class="cta-band">
+    <h2>Ready to start exploring in person?</h2>
+    <p>Campus visits are welcome any working day — no appointment needed.</p>
+    <a class="btn btn-primary btn-large" href="/little-explorers/admissions/">Learn About Admissions</a>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 780px; margin: 0 auto; padding: 4rem 1.5rem 2rem; text-align: center; }
+  .hero h1 { font-size: clamp(2rem, 4.4vw, 3rem); }
+  .hero-lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 50ch; margin-left: auto; margin-right: auto; }
+  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+
+  .map-section { max-width: 1100px; margin: 3rem auto 6rem; padding: 0 1.5rem; text-align: center; }
+  .map-frame { position: relative; aspect-ratio: 100 / 60; background: linear-gradient(160deg, #f2fbfa, #fdf6ec); border-radius: 32px; overflow: visible; z-index: 0; }
+  .map-path { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .map-path path { fill: none; stroke: var(--ink-800); stroke-width: 0.4; stroke-dasharray: 2 2.4; stroke-linecap: round; opacity: 0.25; }
+  .map-stops { position: absolute; inset: 0; }
+  .map-stop { position: absolute; display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%); }
+  .stop-bubble {
+    display: block;
+    width: 100px; height: 100px; border-radius: 50%;
+    border: 5px solid #fff; padding: 0; overflow: hidden;
+    cursor: pointer; background: #fff;
+    outline: 3px solid var(--turquoise-500); outline-offset: 3px;
+    box-shadow: 0 10px 24px -10px rgba(42,36,56,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .stop-bubble img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .map-stop:hover .stop-bubble, .stop-bubble:focus-visible { transform: scale(1.06); box-shadow: 0 14px 28px -10px rgba(42,36,56,0.38); }
+  .stop-label { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 0.8rem; margin-top: 0.75em; background: #fff; padding: 0.2em 0.7em; border-radius: 999px; box-shadow: 0 4px 10px -6px rgba(42,36,56,0.3); white-space: nowrap; }
+  .stop-card {
+    position: absolute; top: 100%; margin-top: 0.75rem;
+    width: 170px; background: var(--ink-800); color: #fff;
+    border-radius: 14px; padding: 0.8em 1em; font-size: 0.82rem;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .stop-card strong { display: block; font-family: "Baloo 2", sans-serif; margin-bottom: 0.2em; }
+  .stop-card p { margin: 0; opacity: 0.85; }
+  .map-stop:hover .stop-card, .stop-bubble:focus-visible ~ .stop-card { opacity: 1; visibility: visible; transform: translateY(0); }
+  .map-hint { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+  @media (max-width: 780px) {
+    .map-frame { aspect-ratio: auto; min-height: 680px; }
+    .stop-bubble { width: 76px; height: 76px; }
+    .stop-label { white-space: normal; max-width: 92px; text-align: center; font-size: 0.72rem; }
+    .stop-card { display: none; }
+  }
+</style>

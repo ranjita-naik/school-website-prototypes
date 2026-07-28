@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
+import { Image } from "astro:assets";
+import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+import playgroundHeritage from "../../../assets/photos/shared/playground-heritage-01.jpg";
+import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import forestPathway from "../../../assets/photos/shared/forest-pathway-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
+
+const photos = [
+  { img: campusEntrance, alt: "Tree-lined school entrance in the early morning" },
+  { img: assemblyPrayer, alt: "Students gathered for morning assembly and prayer" },
+  { img: teacherLecturing, alt: "A teacher instructing students in a classroom" },
+  { img: classroomChildrenTn2, alt: "Students reading and writing at their desks" },
+  { img: playgroundHeritage, alt: "Students together on the school grounds" },
+  { img: playgroundGround, alt: "A green sports field used for games and athletics" },
+  { img: schoolGarden, alt: "The school garden tended by students" },
+  { img: forestPathway, alt: "A quiet garden path at the end of the day" },
+];
+---
+
+<Layout
+  title="Gallery — A School Day Story — Green Valley Matriculation School"
+  description="Photographs from a day at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Gallery</p>
+    <h1>Moments from the day.</h1>
+    <p class="hero-lede">
+      Temporary photography, standing in for the school's own. Every image here will be
+      replaced with real, permission-cleared photography before launch.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <ul class="gallery-grid">
+      {photos.map((p) => (
+        <li><Image src={p.img} alt={p.alt} width={640} height={480} /></li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 5rem; }
+  .gallery-grid :global(img) { border-radius: 6px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+
+  @media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+</style>

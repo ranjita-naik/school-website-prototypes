@@ -1,0 +1,90 @@
+---
+import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
+import { Image } from "astro:assets";
+import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+
+const milestones = [
+  { year: "1998", detail: "Green Valley Matriculation School founded with its first Primary section. (placeholder)" },
+  { year: "2006", detail: "Secondary section opened, extending schooling through Class 10. (placeholder)" },
+  { year: "2014", detail: "Science and computer laboratory block constructed. (placeholder)" },
+  { year: "2026", detail: "Today — serving students from Kindergarten through Class 10. (placeholder)" },
+];
+
+const values = [
+  { name: "Integrity", detail: "Honesty in small things, so it holds in large ones." },
+  { name: "Discipline", detail: "Structure that gives children room to focus and grow." },
+  { name: "Compassion", detail: "Kindness treated as seriously as any subject." },
+  { name: "Excellence", detail: "High standards, held with patience and care." },
+];
+---
+
+<Layout
+  title="About the School — Roots and Horizons — Green Valley Matriculation School"
+  description="The heritage, values, and leadership of Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Story</p>
+    <h1>A school built to last, one class at a time.</h1>
+    <p class="hero-lede">
+      Green Valley Matriculation School was founded on a simple belief: that a school's first
+      duty is to be worth a family's trust.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1600} height={700} />
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Our Heritage</p>
+    <h2>A brief history.</h2>
+    <ol class="timeline">
+      {milestones.map((m) => (
+        <li class="timeline-item">
+          <span class="timeline-year">{m.year}</span>
+          <span class="timeline-detail">{m.detail}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Values</p>
+    <h2>Four values, taught by example.</h2>
+    <dl class="value-defs">
+      {values.map((v) => (
+        <>
+          <dt>{v.name}</dt>
+          <dd>{v.detail}</dd>
+        </>
+      ))}
+    </dl>
+  </section>
+
+  <section class="content-section principal-section" id="principal">
+    <p class="eyebrow">Leadership</p>
+    <h2>A message from the Principal.</h2>
+    <blockquote class="pull-quote">
+      We ask a great deal of our students — and we hold ourselves to the same standard. Every
+      child who leaves Green Valley should carry both good values and a genuine readiness for
+      what comes next.
+    </blockquote>
+    <p class="attribution">— Mrs. Lakshmi Narayanan, Principal <em>(placeholder name)</em></p>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { height: 320px; object-fit: cover; width: 100%; }
+
+  .timeline { margin-top: 2rem; border-top: 1px solid var(--line); }
+  .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .timeline-year { font-family: "Playfair Display", serif; font-weight: 700; color: var(--marigold-500); }
+  .timeline-detail { color: var(--ink-soft); }
+
+  .value-defs dt { font-family: "Playfair Display", serif; font-weight: 700; margin-top: 1em; font-size: 1.1rem; }
+  .value-defs dd { margin: 0.25em 0 0; color: var(--ink-soft); }
+
+  .pull-quote { font-family: "Playfair Display", serif; font-style: italic; font-size: 1.25rem; line-height: 1.5; margin: 1rem 0; }
+  .attribution { font-size: 0.85rem; color: var(--ink-soft); }
+</style>

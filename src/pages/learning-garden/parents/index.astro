@@ -1,0 +1,87 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+
+const resources = [
+  { title: "Academic Calendar", detail: "Term dates, exam schedules, and holidays.", note: "Placeholder — confirmed each academic year." },
+  { title: "Transport Routes", detail: "Bus stops and approximate timings across Nagercoil.", note: "Placeholder." },
+  { title: "Uniform Guidelines", detail: "What students wear, and where to source it.", note: "Placeholder." },
+  { title: "School Timings", detail: "Monday–Saturday, 8:30 AM – 3:30 PM.", note: "" },
+];
+
+const circulars = [
+  { title: "Annual Sports Day — Parent Notice", date: "1 August 2026" },
+  { title: "Mid-Term Exam Schedule", date: "20 July 2026" },
+  { title: "Monsoon Term Uniform Note", date: "5 July 2026" },
+];
+---
+
+<Layout
+  title="Parent Resources — The Learning Garden — Green Valley Matriculation School"
+  description="Calendar, transport, uniform, and other practical resources for Green Valley Matriculation School parents."
+>
+  <section class="page-hero">
+    <p class="eyebrow">For Parents</p>
+    <h1>Everything practical, in one place.</h1>
+    <p class="hero-lede">
+      The everyday details of school life — calendars, transport, and what to expect week to week.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <ul class="resource-grid">
+      {resources.map((r) => (
+        <li class="resource-card">
+          <h3>{r.title}</h3>
+          <p>{r.detail}</p>
+          {r.note && <p class="note">{r.note}</p>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Circulars &amp; Notices</p>
+    <h2>Recent updates.</h2>
+    <ul class="circular-list">
+      {circulars.map((c) => (
+        <li>
+          <span>{c.title}</span>
+          <time>{c.date}</time>
+        </li>
+      ))}
+    </ul>
+    <p class="fine-print">Notices shown are illustrative placeholders, not real school communications.</p>
+  </section>
+</Layout>
+
+<style>
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+  }
+  .resource-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px -18px rgba(30, 58, 41, 0.25);
+  }
+  .resource-card h3 { font-size: 1.1rem; margin-bottom: 0.35em; }
+  .resource-card p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+  .resource-card .note { font-size: 0.8rem; font-style: italic; margin-top: 0.5em; }
+
+  .circular-list { border-top: 1px solid var(--leaf-200); margin-top: 1.5rem; }
+  .circular-list li {
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding: 1em 0; border-bottom: 1px solid var(--leaf-200);
+    font-size: 0.95rem;
+  }
+  .circular-list time { color: var(--ink-soft); font-size: 0.85rem; white-space: nowrap; }
+  .fine-print { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin-top: 1.25rem; }
+
+  @media (max-width: 720px) {
+    .resource-grid { grid-template-columns: 1fr; }
+    .circular-list li { flex-direction: column; gap: 0.25em; }
+  }
+</style>

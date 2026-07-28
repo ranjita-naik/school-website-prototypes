@@ -1,0 +1,128 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+import { Image } from "astro:assets";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+---
+
+<Layout
+  title="About the School — The Learning Garden — Green Valley Matriculation School"
+  description="How Green Valley Matriculation School began, what it believes, and a message from the Principal."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Story</p>
+    <h1>How a school becomes a garden.</h1>
+    <p class="hero-lede">
+      Green Valley Matriculation School is a Kindergarten–Class 10 school in Nagercoil, Tamil Nadu.
+      This is the short version of how it began, and what it still believes.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={assemblyPrayer} alt="Students standing together for morning assembly and prayer" width={1800} height={800} />
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Our Beginning</p>
+    <h2>A school planted on purpose.</h2>
+    <p>
+      Green Valley Matriculation School was founded with a simple aim: to give children in and
+      around Nagercoil a place to learn that felt as unhurried and alive as the land around it.
+      <em>(Placeholder history — founding year, founders, and early milestones to be confirmed
+      with the school.)</em>
+    </p>
+    <p>
+      Over the years, the campus has grown the way a garden grows — one classroom, one
+      laboratory, one shaded walkway at a time — always in service of the same idea: children
+      learn best when they are known, and given room to grow at their own pace.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Vision &amp; Mission</p>
+    <h2>What we're working toward.</h2>
+    <p>
+      <strong>Vision.</strong> A school where every child leaves with strong foundations,
+      confident character, and a lifelong love of learning.
+    </p>
+    <p>
+      <strong>Mission.</strong> To teach with curiosity and care, to treat discipline and
+      kindness as partners, and to keep the campus itself — its gardens, light, and quiet
+      corners — part of how children learn.
+    </p>
+  </section>
+
+  <section class="content-section principal-section" id="principal">
+    <p class="eyebrow">Leadership</p>
+    <h2>A message from the Principal.</h2>
+    <div class="principal-card">
+      <span class="quote-mark" aria-hidden="true">“</span>
+      <blockquote>
+        Every child who walks through our gates brings something worth growing — our work is
+        simply to give it light, room, and good soil. We ask our teachers to know each student
+        by name, and we ask our students to be curious before they are certain.
+      </blockquote>
+      <p class="principal-attribution">
+        — Mrs. Lakshmi Narayanan, Principal <em>(placeholder name)</em>
+      </p>
+    </div>
+  </section>
+
+  <section class="campus-glimpse content-wide">
+    <div class="glimpse-grid">
+      <div class="glimpse-copy">
+        <p class="eyebrow">The Campus</p>
+        <h2>A garden the school grows around.</h2>
+        <p>
+          Shaded walkways, a working school garden, and open play areas sit alongside our
+          classrooms and labs — part of the campus, not just a backdrop to it.
+        </p>
+        <a class="text-link" href="/learning-garden/campus/">Walk the campus →</a>
+      </div>
+      <div class="glimpse-image">
+        <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={900} height={700} />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 1240px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image > :global(img) { border-radius: 28px; height: 360px; object-fit: cover; width: 100%; }
+
+  .principal-card {
+    background: var(--white);
+    border-radius: 28px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 50px -25px rgba(30, 58, 41, 0.3);
+    position: relative;
+    margin-top: 1.5rem;
+  }
+  .quote-mark {
+    font-family: "Fraunces", serif;
+    font-size: 3.5rem;
+    color: var(--leaf-200);
+    display: block;
+    line-height: 0.5;
+    margin-bottom: 1rem;
+  }
+  .principal-card blockquote {
+    margin: 0 0 1.25rem;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--forest-900);
+  }
+  .principal-attribution { font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+
+  .campus-glimpse { margin-bottom: 5rem; }
+  .glimpse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .glimpse-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 4/3.2; object-fit: cover; }
+  .glimpse-copy h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+
+  @media (max-width: 1024px) {
+    .glimpse-grid { grid-template-columns: 1fr; }
+    .glimpse-image { order: -1; }
+  }
+</style>

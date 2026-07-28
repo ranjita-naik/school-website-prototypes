@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
+
+const disclosures = [
+  { title: "Affiliation & Recognition", detail: "Board affiliation number and recognition status." },
+  { title: "Infrastructure Details", detail: "Built-up area, classrooms, and safety certifications." },
+  { title: "Fee Structure", detail: "Class-wise annual fee schedule." },
+  { title: "Academic Results", detail: "Board exam results for recent years." },
+  { title: "Staff Qualifications", detail: "Faculty count and qualification summary." },
+];
+---
+
+<Layout
+  title="Policies & Disclosures — A School Day Story — Green Valley Matriculation School"
+  description="Mandatory disclosures and policies for Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Policies &amp; Disclosures</p>
+    <h1>The formal record.</h1>
+    <p class="hero-lede">Mandatory disclosures and school policies, kept in one place.</p>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Mandatory Disclosures</p>
+    <h2>Required public information.</h2>
+    <p>
+      As required by regulation, the following information is made available to parents and
+      the public. <em>(Placeholder — each item below will link to a real, board-mandated
+      disclosure document once provided by the school.)</em>
+    </p>
+    <ul class="fact-list">
+      {disclosures.map((d) => <li><strong>{d.title}</strong> — {d.detail}</li>)}
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Code of Conduct</p>
+    <h2>What we expect of one another.</h2>
+    <p>
+      Green Valley asks students, staff, and families to treat one another with honesty and
+      respect. A full code of conduct document is available at the school office.
+      <em>(Placeholder.)</em>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Privacy</p>
+    <h2>How we handle information.</h2>
+    <p>
+      Student and family information is collected only for admissions and academic purposes,
+      and is not shared with third parties without consent. <em>(Placeholder privacy note.)</em>
+    </p>
+  </section>
+</Layout>

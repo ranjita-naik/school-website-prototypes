@@ -1,0 +1,60 @@
+---
+import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
+
+const faqs = [
+  { q: "What ages does Green Valley accept?", a: "Kindergarten begins at age 3. Older classes accept transfers where seats are available." },
+  { q: "Is there an entrance exam?", a: "No. Admission is based on a short, age-appropriate conversation." },
+  { q: "When does the academic year begin?", a: "Academic year and admission dates are placeholders pending confirmation from the school." },
+];
+---
+
+<Layout
+  title="Admissions — Roots and Horizons — Green Valley Matriculation School"
+  description="How to enquire, visit, and join Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Reception Office</p>
+    <h1>A considered process, not a rushed one.</h1>
+    <p class="hero-lede">How to enquire, visit, and join us.</p>
+  </section>
+
+  <section class="content-section">
+    <ol class="steps">
+      <li><span>01</span>Submit an enquiry with your child's details.</li>
+      <li><span>02</span>Visit the campus and meet the academic team.</li>
+      <li><span>03</span>A short, age-appropriate readiness conversation.</li>
+      <li><span>04</span>Complete admission formalities and confirm the seat.</li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Fees</p>
+    <h2>A note on cost.</h2>
+    <p>
+      Fee details vary by class and are shared directly during your enquiry.
+      <em>(Placeholder — actual fee structure to be confirmed with the school.)</em>
+    </p>
+  </section>
+
+  <section class="content-section faq">
+    <p class="eyebrow">Frequently Asked</p>
+    <h2>A few common questions.</h2>
+    <dl>
+      {faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))}
+    </dl>
+  </section>
+</Layout>
+
+<style>
+  .steps { margin-top: 1rem; display: grid; gap: 1.1rem; }
+  .steps li { display: flex; gap: 1.25rem; align-items: baseline; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
+  .steps span { font-family: "Playfair Display", serif; font-weight: 700; color: var(--marigold-500); font-size: 1.1rem; width: 2ch; }
+
+  .faq dt { font-family: "Playfair Display", serif; font-weight: 700; margin-top: 1.25em; }
+  .faq dd { margin: 0.3em 0 0; color: var(--ink-soft); }
+</style>

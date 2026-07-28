@@ -1,0 +1,46 @@
+---
+import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
+
+const events = [
+  { date: "14 August 2026", title: "Annual Sports Day", detail: "A full morning of track events and house championships." },
+  { date: "3 September 2026", title: "Grandparents' Day", detail: "Grandparents spend a morning in class with their grandchildren." },
+  { date: "20 September 2026", title: "Founders' Week", detail: "A week of assemblies and activities marking the school's founding." },
+  { date: "12 December 2026", title: "Annual Day Celebration", detail: "An evening of music, dance, and drama across all classes." },
+];
+---
+
+<Layout
+  title="Events & Announcements — Roots and Horizons — Green Valley Matriculation School"
+  description="Upcoming events and announcements at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Events &amp; Announcements</p>
+    <h1>The school calendar.</h1>
+    <p class="hero-lede">Notable dates through the academic year.</p>
+  </section>
+
+  <section class="content-section">
+    <ul class="event-list">
+      {events.map((e) => (
+        <li>
+          <span class="event-date">{e.date}</span>
+          <span class="event-text"><strong>{e.title}</strong><br />{e.detail}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="fine-print">Dates and events shown are illustrative placeholders, not a real school calendar.</p>
+  </section>
+</Layout>
+
+<style>
+  .event-list { margin-top: 1rem; border-top: 1px solid var(--line); }
+  .event-list li { display: grid; grid-template-columns: 160px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .event-date { font-family: "Playfair Display", serif; color: var(--marigold-500); font-weight: 700; }
+  .event-text { color: var(--ink-soft); }
+  .event-text strong { color: var(--indigo-900); }
+  .fine-print { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin-top: 1.5rem; }
+
+  @media (max-width: 600px) {
+    .event-list li { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+</style>

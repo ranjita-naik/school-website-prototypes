@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/LittleExplorersLayout.astro";
+import { Image } from "astro:assets";
+import scienceExperiment from "../../../assets/photos/shared/science-experiment-01.jpg";
+import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+
+const stages = [
+  { stage: "Kindergarten", classes: "Ages 3–5", detail: "Play-based foundations in language, number, and social skill." },
+  { stage: "Primary", classes: "Classes 1–5", detail: "Core subjects taught with curiosity at the centre." },
+  { stage: "Middle School", classes: "Classes 6–8", detail: "Widening subjects, growing independence." },
+  { stage: "Secondary", classes: "Classes 9–10", detail: "Board-aligned preparation with close mentorship." },
+];
+---
+
+<Layout
+  title="Academics — Little Explorers — Green Valley Matriculation School"
+  description="What's taught, and how, at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Classrooms</p>
+    <h1>Where questions turn into experiments.</h1>
+    <p class="hero-lede">
+      One continuous journey from Kindergarten to Class 10, each stage building on the last.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <div class="table-scroll">
+      <table class="simple-table">
+        <caption>Academic stages</caption>
+        <thead><tr><th>Stage</th><th>Classes</th><th>Focus</th></tr></thead>
+        <tbody>
+          {stages.map((s) => <tr><td>{s.stage}</td><td>{s.classes}</td><td>{s.detail}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="doorways">
+    <div class="doorway-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="doorway-card">
+        <div class="doorway-image"><Image src={scienceExperiment} alt="A teacher and student conducting a science experiment" width={640} height={480} /></div>
+        <h3>Hands-On Science</h3>
+        <p>Lab-based learning from Class 3 onward, with a working science club.</p>
+      </div>
+      <div class="doorway-card">
+        <div class="doorway-image"><Image src={computerLab} alt="Students working at computers in the computer laboratory" width={640} height={480} /></div>
+        <h3>Coding Corner</h3>
+        <p>Computer literacy from Kindergarten; coding club from Class 6.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

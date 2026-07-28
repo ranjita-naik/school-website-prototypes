@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
+
+const departments = [
+  { name: "General Office", detail: "For all general enquiries.", phone: "+91 98765 43210", email: "info@greenvalley.example" },
+  { name: "Admissions Office", detail: "For enquiries about joining the school.", phone: "+91 98765 43211", email: "admissions@greenvalley.example" },
+];
+---
+
+<Layout
+  title="Contact — Roots and Horizons — Green Valley Matriculation School"
+  description="How to reach Green Valley Matriculation School — address, phone, email, and office hours."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Front Desk</p>
+    <h1>Reach us, or plan a visit.</h1>
+    <p class="hero-lede">All contact details below are placeholders, standing in for the school's real information.</p>
+  </section>
+
+  <section class="content-wide info-grid">
+    <div class="info-card">
+      <p class="eyebrow">Visit</p>
+      <h2>Green Valley Matriculation School</h2>
+      <p>
+        123 Garden Road <em>(placeholder)</em><br />
+        Nagercoil, Tamil Nadu — 629001
+      </p>
+      <p><strong>Office Hours</strong><br />Monday–Saturday, 8:30 AM – 3:30 PM</p>
+    </div>
+    <div class="info-card">
+      <p class="eyebrow">Departments</p>
+      {departments.map((d) => (
+        <div class="dept">
+          <h3>{d.name}</h3>
+          <p>{d.detail}</p>
+          <p>{d.phone} · <a class="text-link" href={`mailto:${d.email}`}>{d.email}</a></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Finding Us</p>
+    <h2>Getting to the campus.</h2>
+    <p>
+      Green Valley is located in Nagercoil, Tamil Nadu. <em>(A map and detailed directions will
+      be added once the school's real address is confirmed.)</em>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .info-card h2 { font-size: 1.3rem; }
+  .dept { margin-top: 1.25em; }
+  .dept:first-child { margin-top: 0.5em; }
+  .dept h3 { font-size: 1rem; margin-bottom: 0.2em; }
+  .dept p { font-size: 0.92rem; margin: 0 0 0.2em; color: var(--ink-soft); }
+</style>

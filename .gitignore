@@ -1,0 +1,36 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# editor / tooling (not needed to build or host the site)
+.vscode/
+.claude/
+
+# project process docs and internal notes (not needed to host the site)
+CLAUDE.md
+PLAYBOOK.md
+DESIGN_SYSTEM.md
+PROTOTYPE_NOTES.md
+design-notes/
+scripts/

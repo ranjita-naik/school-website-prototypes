@@ -1,0 +1,84 @@
+---
+import Layout from "../../../layouts/LittleExplorersLayout.astro";
+
+const steps = [
+  { title: "Say Hello", detail: "Tell us a little about your child." },
+  { title: "Come Explore", detail: "Visit the campus and peek into a class." },
+  { title: "A Little Chat", detail: "A simple, friendly conversation — no exams to fear." },
+  { title: "Welcome In", detail: "Confirm the seat and start the adventure." },
+];
+
+const faqs = [
+  { q: "What ages does Green Valley accept?", a: "Kindergarten begins at age 3. Older classes accept transfers where seats are available." },
+  { q: "Is there an entrance exam?", a: "No — just a short, friendly conversation." },
+  { q: "When does the academic year begin?", a: "Academic year and admission dates are placeholders pending confirmation from the school." },
+];
+---
+
+<Layout
+  title="Admissions — Little Explorers — Green Valley Matriculation School"
+  description="How to enquire, visit, and join Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Reception Office</p>
+    <h1>Four small steps to a big adventure.</h1>
+    <p class="hero-lede">How to enquire, visit, and join us.</p>
+  </section>
+
+  <section class="content-wide">
+    <ol class="route">
+      {steps.map((step, i) => (
+        <li class="route-stop">
+          <span class="route-marker">{i + 1}</span>
+          <h3>{step.title}</h3>
+          <p>{step.detail}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Fees</p>
+    <h2>A note on cost.</h2>
+    <p>
+      Fee details vary by class and are shared directly during your enquiry.
+      <em>(Placeholder — actual fee structure to be confirmed with the school.)</em>
+    </p>
+  </section>
+
+  <section class="content-section faq">
+    <p class="eyebrow">Frequently Asked</p>
+    <h2>A few common questions.</h2>
+    <dl>
+      {faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))}
+    </dl>
+  </section>
+</Layout>
+
+<style>
+  .route { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .route-stop { background: #fff; border-radius: 20px; padding: 1.75rem 1.25rem; box-shadow: 0 10px 26px -16px rgba(42,36,56,0.25); }
+  .route-marker {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--yellow-400); color: var(--ink-800);
+    font-family: "Baloo 2", sans-serif; font-weight: 800; margin-bottom: 0.75rem;
+  }
+  .route-stop h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+  .route-stop p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+
+  .faq dt { font-family: "Baloo 2", sans-serif; font-weight: 700; margin-top: 1.25em; }
+  .faq dd { margin: 0.3em 0 0; color: var(--ink-soft); }
+
+  @media (max-width: 1024px) {
+    .route { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .route { grid-template-columns: 1fr; }
+  }
+</style>

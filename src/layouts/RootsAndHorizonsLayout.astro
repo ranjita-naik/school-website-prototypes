@@ -1,0 +1,261 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p class="prototype-flag">Prototype concept 5 of 5 — "Roots and Horizons." Placeholder school, names, and content — not a real institution.</p>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="utility-strip">
+      <span>Nagercoil, Tamil Nadu</span>
+      <span class="utility-sep" aria-hidden="true">·</span>
+      <a href="/roots-and-horizons/parents/">Parent Portal</a>
+      <span class="utility-sep" aria-hidden="true">·</span>
+      <a href="/roots-and-horizons/contact/">Contact</a>
+    </div>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-side">
+          <li><a href="/roots-and-horizons/about/">Our Heritage</a></li>
+          <li><a href="/roots-and-horizons/academics/">Academics</a></li>
+        </ul>
+        <a class="wordmark" href="/roots-and-horizons/">
+          <span class="wordmark-main">Green Valley</span>
+          <span class="wordmark-sub">Matriculation School · Est. 1998 <em>(placeholder)</em></span>
+        </a>
+        <ul class="nav-side nav-side-right">
+          <li><a href="/roots-and-horizons/admissions/">Admissions</a></li>
+          <li><a href="/roots-and-horizons/policies/">Disclosures</a></li>
+        </ul>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Open menu"><span></span></label>
+      </nav>
+      <ul class="nav-mobile-links">
+        <li><a href="/roots-and-horizons/about/">Our Heritage</a></li>
+        <li><a href="/roots-and-horizons/academics/">Academics</a></li>
+        <li><a href="/roots-and-horizons/admissions/">Admissions</a></li>
+        <li><a href="/roots-and-horizons/policies/">Disclosures</a></li>
+      </ul>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-word">Green Valley Matriculation School</p>
+          <p>Nagercoil, Tamil Nadu — 629001 <em>(placeholder address)</em></p>
+          <p>+91 98765 43210 · info@greenvalley.example <em>(placeholder)</em></p>
+        </div>
+        <nav class="footer-col" aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/roots-and-horizons/about/">About the School</a></li>
+            <li><a href="/roots-and-horizons/academics/">Academics</a></li>
+            <li><a href="/roots-and-horizons/admissions/">Admissions</a></li>
+            <li><a href="/roots-and-horizons/campus/">Campus &amp; Facilities</a></li>
+            <li><a href="/roots-and-horizons/gallery/">Gallery</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="For Parents">
+          <h3>For Parents</h3>
+          <ul>
+            <li><a href="/roots-and-horizons/parents/">Parent Resources</a></li>
+            <li><a href="/roots-and-horizons/events/">Events &amp; Announcements</a></li>
+            <li><a href="/roots-and-horizons/faculty/">Faculty &amp; Leadership</a></li>
+            <li><a href="/roots-and-horizons/policies/">Policies &amp; Disclosures</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h3>Office Hours</h3>
+          <p>Monday–Saturday<br />8:30 AM – 3:30 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Green Valley Matriculation School. Placeholder content for design prototype purposes only.</p>
+      </div>
+    </footer>
+
+    <style is:global>
+      body {
+        --indigo-900: #202b4d;
+        --indigo-700: #33436f;
+        --marigold-500: #c98a2c;
+        --ivory-50: #f7f2e7;
+        --leaf-600: #4f7a52;
+        --terracotta-500: #a8562f;
+        --ink-soft: #5b5748;
+        --white: #fffdf8;
+        --line: #e5dbc6;
+
+        margin: 0;
+        font-family: "Work Sans", sans-serif;
+        color: var(--indigo-900);
+        background: var(--ivory-50);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3 { font-family: "Playfair Display", serif; font-weight: 700; line-height: 1.2; margin: 0 0 0.5em; }
+      p { margin: 0 0 1em; }
+      ul, ol, dl { list-style: none; margin: 0; padding: 0; }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; }
+      :focus-visible { outline: 3px solid var(--marigold-500); outline-offset: 3px; }
+
+      .prototype-flag { margin: 0; text-align: center; font-size: 0.78rem; background: var(--indigo-900); color: var(--ivory-50); padding: 0.4em 1em; }
+      .skip-link { position: absolute; left: -999px; top: 0; background: var(--indigo-900); color: #fff; padding: 0.75em 1.25em; z-index: 100; }
+      .skip-link:focus { left: 0; }
+
+      .eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 700; color: var(--marigold-500); margin: 0 0 0.6em; }
+      .eyebrow.center, h2.center, p.center { text-align: center; }
+      .lede { max-width: 640px; margin-left: auto; margin-right: auto; color: var(--ink-soft); }
+
+      .btn { display: inline-block; padding: 0.85em 1.7em; font-weight: 600; text-decoration: none; border: 1.5px solid var(--indigo-900); transition: background 0.2s ease, color 0.2s ease; }
+      .btn-primary { background: var(--indigo-900); color: #fff; }
+      .btn-primary:hover { background: var(--marigold-500); border-color: var(--marigold-500); }
+      .btn-ghost { background: transparent; color: var(--indigo-900); }
+      .btn-ghost:hover { background: var(--indigo-900); color: #fff; }
+
+      .text-link { display: inline-block; margin-top: 0.5em; font-weight: 700; color: var(--marigold-500); text-decoration: none; border-bottom: 1px solid var(--marigold-500); }
+
+      /* Utility strip + header */
+      .utility-strip { background: var(--indigo-900); color: #cfd6ea; font-size: 0.76rem; text-align: center; padding: 0.5em 1rem; }
+      .utility-strip a { text-decoration: none; color: #cfd6ea; }
+      .utility-strip a:hover { color: #fff; text-decoration: underline; }
+      .utility-sep { margin: 0 0.6em; opacity: 0.5; }
+
+      .site-header { position: sticky; top: 0; z-index: 50; background: var(--ivory-50); border-bottom: 1px solid var(--line); }
+      .nav { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.1rem 1.5rem; gap: 1rem; }
+      .nav-side { display: flex; gap: 1.75rem; font-weight: 600; font-size: 0.88rem; }
+      .nav-side-right { justify-content: flex-end; }
+      .nav-side a { text-decoration: none; }
+      .nav-side a:hover { color: var(--marigold-500); }
+      .wordmark { text-align: center; text-decoration: none; color: var(--indigo-900); }
+      .wordmark-main { display: block; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.4rem; }
+      .wordmark-sub { display: block; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--ink-soft); text-transform: uppercase; margin-top: 0.15em; }
+      .nav-toggle-input { display: none; }
+      .nav-toggle { display: none; cursor: pointer; padding: 0.5rem; justify-self: end; }
+      .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { content: ""; display: block; width: 24px; height: 1.5px; background: var(--indigo-900); position: relative; }
+      .nav-toggle span::before { position: absolute; top: -7px; }
+      .nav-toggle span::after { position: absolute; top: 7px; }
+      .nav-mobile-links { display: none; }
+
+      /* Hairline divider with lattice motif */
+      .hairline { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: center; }
+      .hairline::before, .hairline::after { content: ""; flex: 1; height: 1px; background: var(--line); align-self: center; }
+      .lattice { width: 22px; height: 22px; margin: 0 1rem; background:
+          linear-gradient(45deg, transparent 45%, var(--marigold-500) 45%, var(--marigold-500) 55%, transparent 55%),
+          linear-gradient(-45deg, transparent 45%, var(--marigold-500) 45%, var(--marigold-500) 55%, transparent 55%);
+        opacity: 0.7;
+      }
+
+      /* Page header (inner pages) */
+      .page-hero { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.5rem 2.5rem; text-align: center; }
+      .page-hero h1 { font-size: clamp(2rem, 3.6vw, 2.7rem); }
+      .page-hero .hero-lede { font-size: 1.08rem; max-width: 55ch; margin: 0 auto; color: var(--ink-soft); }
+
+      /* Directory-style cross-links, reused on inner pages */
+      .directory-section { max-width: 900px; margin: 4.5rem auto; padding: 0 1.5rem; }
+      .directory-section h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
+      .directory { margin-top: 2.5rem; border-top: 1px solid var(--line); }
+      .directory-row { border-bottom: 1px solid var(--line); }
+      .directory-row a { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 0.5rem; text-decoration: none; color: inherit; transition: background 0.15s ease; }
+      .directory-row a:hover { background: rgba(201,138,44,0.08); }
+      .directory-index { font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.1rem; color: var(--marigold-500); width: 2.5ch; flex-shrink: 0; }
+      .directory-text { flex: 1; display: grid; gap: 0.15em; }
+      .directory-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+      .directory-text strong { font-family: "Playfair Display", serif; font-size: 1.2rem; font-weight: 700; }
+      .directory-desc { font-size: 0.9rem; color: var(--ink-soft); }
+      .directory-arrow { font-size: 1.3rem; color: var(--marigold-500); flex-shrink: 0; }
+
+      /* Simple content blocks */
+      .content-section { max-width: 780px; margin: 4rem auto; padding: 0 1.5rem; }
+      .content-section h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+      .content-section p { color: var(--ink-soft); }
+      .content-wide { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
+
+      .fact-list { display: grid; gap: 0.6em; margin: 1.25em 0; }
+      .fact-list li { font-size: 0.96rem; color: var(--ink-soft); padding-left: 1.4em; position: relative; }
+      .fact-list li::before { content: "—"; position: absolute; left: 0; color: var(--marigold-500); }
+
+      .info-card { background: #fff; border: 1px solid var(--line); padding: 2rem; }
+      .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+      table.simple-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+      table.simple-table caption { text-align: left; font-weight: 700; margin-bottom: 0.75em; }
+      table.simple-table th, table.simple-table td { text-align: left; padding: 0.85em 1em; border-bottom: 1px solid var(--line); }
+      table.simple-table th { font-family: "Playfair Display", serif; color: var(--indigo-900); }
+      table.simple-table td { color: var(--ink-soft); }
+      .table-scroll { overflow-x: auto; }
+
+      /* Footer */
+      .site-footer { background: var(--indigo-900); color: #cfd6ea; padding: 4rem 1.5rem 1.5rem; margin-top: 4.5rem; }
+      .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; }
+      .footer-word { font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.15rem; color: #fff; margin-bottom: 0.5em; }
+      .footer-brand p { font-size: 0.88rem; opacity: 0.85; }
+      .footer-col h3 { font-family: "Work Sans", sans-serif; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1em; color: var(--marigold-500); }
+      .footer-col ul { display: grid; gap: 0.6em; }
+      .footer-col a { text-decoration: none; font-size: 0.88rem; opacity: 0.85; }
+      .footer-col a:hover { opacity: 1; text-decoration: underline; }
+      .footer-bottom { max-width: 1240px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.76rem; opacity: 0.7; }
+
+      @media (max-width: 1024px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-image { order: -1; }
+        .split-feature { grid-template-columns: 1fr; }
+        .split-image { max-width: 360px; }
+        .info-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 780px) {
+        .nav { grid-template-columns: 1fr auto; }
+        .nav-side { display: none; }
+        .wordmark { text-align: left; }
+        .nav-toggle { display: block; }
+        .nav-mobile-links {
+          display: block; max-width: 1240px; margin: 0 auto;
+          background: var(--ivory-50); border-top: 1px solid var(--line);
+          max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+        }
+        .nav-toggle-input:checked ~ .nav-mobile-links { max-height: 300px; }
+        .nav-mobile-links li { border-bottom: 1px solid var(--line); }
+        .nav-mobile-links a { display: block; padding: 1em 1.5rem; text-decoration: none; font-weight: 600; }
+        .directory-row a { align-items: flex-start; gap: 1rem; }
+        .directory-arrow { display: none; }
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      }
+    </style>
+
+    <script>
+      const navToggle = document.getElementById("nav-toggle");
+      document.querySelectorAll(".nav-mobile-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
+        });
+      });
+    </script>
+  </body>
+</html>

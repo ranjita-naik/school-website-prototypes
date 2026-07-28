@@ -1,0 +1,280 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  transparentHero?: boolean;
+}
+const { title, description, transparentHero = false } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Public+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p class="prototype-flag">Prototype concept 3 of 5 — "A School Day Story." Placeholder school, names, and content — not a real institution.</p>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="utility-bar">
+      <span>Nagercoil, Tamil Nadu</span>
+      <div class="utility-links">
+        <a href="/school-day-story/admissions/">Admissions</a>
+        <a href="/school-day-story/parents/">Parent Resources</a>
+        <a href="/school-day-story/contact/">Contact</a>
+      </div>
+    </div>
+
+    <header class={`site-header ${transparentHero ? "hero-nav" : ""}`} id="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="/school-day-story/">Green Valley</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Open menu"><span></span></label>
+        <ul class="nav-links">
+          <li><a href="/school-day-story/about/">Our Story</a></li>
+          <li><a href="/school-day-story/academics/">Academics</a></li>
+          <li><a href="/school-day-story/admissions/">Admissions</a></li>
+          <li><a href="/school-day-story/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-word">Green Valley Matriculation School</p>
+          <p>Nagercoil, Tamil Nadu — 629001 <em>(placeholder address)</em></p>
+          <p>+91 98765 43210 · info@greenvalley.example <em>(placeholder)</em></p>
+        </div>
+        <nav class="footer-col" aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/school-day-story/about/">About the School</a></li>
+            <li><a href="/school-day-story/academics/">Academics</a></li>
+            <li><a href="/school-day-story/admissions/">Admissions</a></li>
+            <li><a href="/school-day-story/campus/">Campus &amp; Facilities</a></li>
+            <li><a href="/school-day-story/gallery/">Gallery</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="For Parents">
+          <h3>For Parents</h3>
+          <ul>
+            <li><a href="/school-day-story/parents/">Parent Resources</a></li>
+            <li><a href="/school-day-story/events/">Events &amp; Announcements</a></li>
+            <li><a href="/school-day-story/faculty/">Faculty &amp; Leadership</a></li>
+            <li><a href="/school-day-story/policies/">Policies &amp; Disclosures</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h3>Office Hours</h3>
+          <p>Monday–Saturday<br />8:30 AM – 3:30 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Green Valley Matriculation School. Placeholder content for design prototype purposes only.</p>
+      </div>
+    </footer>
+
+    <style is:global>
+      body {
+        --cream-100: #f6ede1;
+        --terracotta-600: #c1613f;
+        --terracotta-700: #a94f30;
+        --blue-500: #4c6e91;
+        --mango-400: #e8a33d;
+        --plum-900: #2e2233;
+        --ink-soft: #5a4f52;
+        --white: #fffdf9;
+        --line: #e7dbca;
+
+        margin: 0;
+        font-family: "Public Sans", sans-serif;
+        color: var(--plum-900);
+        background: var(--cream-100);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3 { font-family: "Lora", serif; font-weight: 600; line-height: 1.2; margin: 0 0 0.5em; }
+      p { margin: 0 0 1em; }
+      ul, ol { list-style: none; margin: 0; padding: 0; }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; }
+      :focus-visible { outline: 3px solid var(--terracotta-600); outline-offset: 3px; }
+
+      .prototype-flag { margin: 0; text-align: center; font-size: 0.78rem; background: var(--plum-900); color: var(--cream-100); padding: 0.4em 1em; }
+      .skip-link { position: absolute; left: -999px; top: 0; background: var(--plum-900); color: #fff; padding: 0.75em 1.25em; z-index: 100; }
+      .skip-link:focus { left: 0; }
+
+      .eyebrow { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; font-weight: 700; color: var(--terracotta-600); margin: 0 0 0.6em; }
+      .eyebrow.center { text-align: center; }
+
+      .btn { display: inline-block; padding: 0.85em 1.7em; border-radius: 4px; font-weight: 600; text-decoration: none; border: 2px solid transparent; transition: transform 0.15s ease; }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary { background: var(--terracotta-600); color: #fff; }
+      .btn-ghost-light { background: transparent; border-color: rgba(255,255,255,0.7); color: #fff; }
+
+      .text-link { display: inline-block; margin-top: 0.4em; font-weight: 700; color: var(--terracotta-600); text-decoration: none; border-bottom: 2px solid transparent; }
+      .text-link:hover { border-color: var(--terracotta-600); }
+
+      /* Utility bar + header */
+      .utility-bar { background: var(--plum-900); color: #e7d9dd; font-size: 0.78rem; display: flex; justify-content: space-between; padding: 0.5em 1.5rem; }
+      .utility-links { display: flex; gap: 1.25rem; }
+      .utility-links a { text-decoration: none; opacity: 0.9; }
+      .utility-links a:hover { opacity: 1; text-decoration: underline; }
+
+      .site-header {
+        position: sticky; top: 0; z-index: 50;
+        background: var(--cream-100);
+        box-shadow: 0 2px 14px rgba(46,34,51,0.08);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+      .site-header.hero-nav { background: transparent; box-shadow: none; }
+      .site-header.hero-nav.solid { background: var(--cream-100); box-shadow: 0 2px 14px rgba(46,34,51,0.08); }
+      .nav { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; padding: 1.1rem 1.5rem; }
+      .brand { font-family: "Lora", serif; font-style: italic; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--plum-900); margin-right: auto; transition: color 0.3s ease; }
+      .site-header.hero-nav:not(.solid) .brand { color: #fff; }
+      .nav-links { display: flex; gap: 2rem; font-weight: 600; font-size: 0.92rem; }
+      .nav-links a { text-decoration: none; color: var(--plum-900); transition: color 0.3s ease; }
+      .site-header.hero-nav:not(.solid) .nav-links a { color: #fff; }
+      .nav-links a:hover { text-decoration: underline; }
+      .nav-toggle-input { display: none; }
+      .nav-toggle { display: none; cursor: pointer; padding: 0.5rem; }
+      .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { content: ""; display: block; width: 24px; height: 2px; background: var(--plum-900); position: relative; transition: background 0.3s ease; }
+      .site-header.hero-nav:not(.solid) .nav-toggle span, .site-header.hero-nav:not(.solid) .nav-toggle span::before, .site-header.hero-nav:not(.solid) .nav-toggle span::after { background: #fff; }
+      .nav-toggle span::before { position: absolute; top: -7px; }
+      .nav-toggle span::after { position: absolute; top: 7px; }
+
+      /* Page header (inner pages) */
+      .page-hero { max-width: 980px; margin: 0 auto; padding: 3.5rem 1.5rem 2.5rem; }
+      .page-hero h1 { font-size: clamp(2rem, 3.6vw, 2.6rem); max-width: 22ch; }
+      .page-hero .hero-lede { font-size: 1.08rem; max-width: 60ch; color: var(--ink-soft); }
+
+      /* Doorways */
+      .doorways { max-width: 1240px; margin: 0 auto 5rem; padding: 0 1.5rem; }
+      .section-heading { text-align: center; max-width: 680px; margin: 0 auto 2.5rem; }
+      .section-heading h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
+      .doorway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+      .doorway-card { background: var(--white); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+      .doorway-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -20px rgba(46,34,51,0.3); }
+      .doorway-card a { display: block; text-decoration: none; color: inherit; height: 100%; box-sizing: border-box; }
+      .doorway-image { aspect-ratio: 4/3; }
+      .doorway-image img { width: 100%; height: 100%; object-fit: cover; }
+      .doorway-label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--terracotta-600); margin: 1.25rem 1.25rem 0.4em; }
+      .doorway-card h3 { font-size: 1.1rem; margin: 0 1.25rem 0.3em; }
+      .doorway-card p { font-size: 0.88rem; color: var(--ink-soft); margin: 0 1.25rem 1.25rem; }
+      .doorway-simple { background: #f2e7e9; display: flex; align-items: center; }
+      .doorway-simple .doorway-label { margin-top: 1.5rem; }
+
+      /* Simple content blocks reused on inner pages */
+      .content-section { max-width: 780px; margin: 4rem auto; padding: 0 1.5rem; }
+      .content-section h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+      .content-section p { color: var(--ink-soft); }
+      .content-wide { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
+
+      .fact-list { display: grid; gap: 0.6em; margin: 1.25em 0; }
+      .fact-list li { font-size: 0.96rem; color: var(--ink-soft); padding-left: 1.4em; position: relative; }
+      .fact-list li::before { content: "—"; position: absolute; left: 0; color: var(--terracotta-600); }
+
+      .info-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 2rem; }
+      .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+      table.simple-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+      table.simple-table caption { text-align: left; font-weight: 700; margin-bottom: 0.75em; }
+      table.simple-table th, table.simple-table td { text-align: left; padding: 0.85em 1em; border-bottom: 1px solid var(--line); }
+      table.simple-table th { font-family: "Lora", serif; color: var(--plum-900); }
+      table.simple-table td { color: var(--ink-soft); }
+      .table-scroll { overflow-x: auto; }
+
+      /* CTA band */
+      .cta-band { background: var(--plum-900); color: #fff; text-align: center; padding: 5rem 1.5rem; margin-top: 5rem; }
+      .cta-band h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.2rem); max-width: 700px; margin-left: auto; margin-right: auto; }
+      .cta-band p { color: #e7d9dd; max-width: 560px; margin: 0 auto 1.5rem; }
+
+      /* Footer */
+      .site-footer { background: var(--plum-900); color: #e7d9dd; padding: 4rem 1.5rem 1.5rem; }
+      .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; }
+      .footer-word { font-family: "Lora", serif; font-style: italic; font-size: 1.15rem; margin-bottom: 0.5em; color: #fff; }
+      .footer-brand p { font-size: 0.88rem; opacity: 0.85; }
+      .footer-col h3 { font-family: "Public Sans", sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1em; color: var(--mango-400); }
+      .footer-col ul { display: grid; gap: 0.6em; }
+      .footer-col a { text-decoration: none; font-size: 0.88rem; opacity: 0.85; }
+      .footer-col a:hover { opacity: 1; text-decoration: underline; }
+      .footer-bottom { max-width: 1240px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.78rem; opacity: 0.7; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .btn:hover { transform: none; }
+      }
+
+      @media (max-width: 1024px) {
+        .doorway-grid { grid-template-columns: repeat(2, 1fr); }
+        .info-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 720px) {
+        .utility-bar { font-size: 0.72rem; }
+        .utility-links { gap: 0.85rem; }
+        .nav-toggle { display: block; }
+        .nav-links {
+          position: absolute; top: 100%; left: 0; right: 0;
+          background: var(--cream-100); flex-direction: column; gap: 0;
+          max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+        }
+        .nav-links li { border-top: 1px solid rgba(0,0,0,0.08); }
+        .nav-links a { display: block; padding: 1em 1.5rem; color: var(--plum-900) !important; }
+        .nav-toggle-input:checked ~ .nav-links { max-height: 400px; }
+        .doorway-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      }
+    </style>
+
+    <script>
+      const header = document.getElementById("site-header");
+      const onScroll = () => {
+        if (window.scrollY > 40) header?.classList.add("solid");
+        else header?.classList.remove("solid");
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      const navToggle = document.getElementById("nav-toggle");
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
+        });
+      });
+
+      const cinemaEls = document.querySelectorAll(".reveal-cinema");
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!prefersReduced && cinemaEls.length && "IntersectionObserver" in window) {
+        document.documentElement.classList.add("js-cinema");
+        const cinemaObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                cinemaObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+        cinemaEls.forEach((el) => cinemaObserver.observe(el));
+        setTimeout(() => cinemaEls.forEach((el) => el.classList.add("in-view")), 4000);
+      }
+    </script>
+  </body>
+</html>

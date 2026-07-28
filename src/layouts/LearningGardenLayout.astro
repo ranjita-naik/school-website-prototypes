@@ -1,0 +1,555 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p class="prototype-flag">Prototype concept 1 of 5 — “The Learning Garden.” Placeholder school, names, and content — not a real institution.</p>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="/learning-garden/">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 34c0-10 6-16 14-18-2 9-6 15-14 18Z" />
+            <path d="M20 34c0-10-6-16-14-18 2 9 6 15 14 18Z" />
+            <path d="M20 34V14" />
+          </svg>
+          <span>
+            <strong>Green Valley</strong>
+            <small>Matriculation School</small>
+          </span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Open menu">
+          <span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="/learning-garden/about/">Our Story</a></li>
+          <li><a href="/learning-garden/academics/">Academics</a></li>
+          <li><a href="/learning-garden/student-life/">Student Life</a></li>
+          <li><a href="/learning-garden/admissions/">Admissions</a></li>
+          <li><a href="/learning-garden/contact/">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="/learning-garden/admissions/">Learn About Admissions</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-mark-footer" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <path d="M20 34c0-10 6-16 14-18-2 9-6 15-14 18Z" />
+              <path d="M20 34c0-10-6-16-14-18 2 9 6 15 14 18Z" />
+              <path d="M20 34V14" />
+            </svg>
+          </span>
+          <p><strong>Green Valley Matriculation School</strong><br />Nagercoil, Tamil Nadu — 629001 <em>(placeholder address)</em></p>
+          <p>Phone: +91 98765 43210 · Email: info@greenvalley.example <em>(placeholder)</em></p>
+        </div>
+        <nav class="footer-col" aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/learning-garden/about/">About the School</a></li>
+            <li><a href="/learning-garden/academics/">Academics</a></li>
+            <li><a href="/learning-garden/admissions/">Admissions</a></li>
+            <li><a href="/learning-garden/campus/">Campus &amp; Facilities</a></li>
+            <li><a href="/learning-garden/gallery/">Gallery</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="For Parents">
+          <h3>For Parents</h3>
+          <ul>
+            <li><a href="/learning-garden/parents/">Parent Resources</a></li>
+            <li><a href="/learning-garden/events/">Events &amp; Announcements</a></li>
+            <li><a href="/learning-garden/faculty/">Faculty &amp; Leadership</a></li>
+            <li><a href="/learning-garden/policies/">Policies &amp; Disclosures</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h3>Office Hours</h3>
+          <p>Monday–Saturday<br />8:30 AM – 3:30 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Green Valley Matriculation School. Placeholder content for design prototype purposes only.</p>
+      </div>
+    </footer>
+
+    <style is:global>
+      body {
+        --forest-900: #1e3a29;
+        --leaf-600: #4c8c5b;
+        --leaf-500: #5d9e6c;
+        --leaf-200: #cde7c7;
+        --leaf-100: #e7f3e1;
+        --sun-400: #f4c95d;
+        --sky-300: #bfe1e8;
+        --cream-50: #fbf7ee;
+        --white: #ffffff;
+        --ink-soft: #3c4a3f;
+
+        margin: 0;
+        font-family: "Karla", sans-serif;
+        color: var(--forest-900);
+        background: var(--cream-50);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        line-height: 1.15;
+        margin: 0 0 0.5em;
+      }
+
+      p { margin: 0 0 1em; }
+      ul, ol { list-style: none; margin: 0; padding: 0; }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; }
+
+      :focus-visible {
+        outline: 3px solid var(--leaf-600);
+        outline-offset: 3px;
+      }
+
+      .prototype-flag {
+        margin: 0;
+        text-align: center;
+        font-size: 0.78rem;
+        background: var(--forest-900);
+        color: var(--leaf-100);
+        padding: 0.4em 1em;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 0;
+        background: var(--forest-900);
+        color: #fff;
+        padding: 0.75em 1.25em;
+        z-index: 100;
+        border-radius: 0 0 8px 0;
+      }
+      .skip-link:focus { left: 0; }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--leaf-600);
+        margin: 0 0 0.6em;
+      }
+      .eyebrow.center { text-align: center; }
+
+      .btn {
+        display: inline-block;
+        padding: 0.85em 1.6em;
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        border: 2px solid transparent;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary {
+        background: var(--leaf-600);
+        color: #fff;
+        box-shadow: 0 8px 20px -8px rgba(76, 140, 91, 0.6);
+      }
+      .btn-primary:hover { box-shadow: 0 12px 24px -8px rgba(76, 140, 91, 0.7); }
+      .btn-ghost {
+        background: transparent;
+        border-color: var(--leaf-600);
+        color: var(--leaf-600);
+      }
+
+      .text-link {
+        display: inline-block;
+        margin-top: 0.5em;
+        font-weight: 600;
+        color: var(--leaf-600);
+        text-decoration: none;
+        border-bottom: 2px solid var(--leaf-200);
+      }
+      .text-link:hover { border-color: var(--leaf-600); }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(251, 247, 238, 0.9);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--leaf-200);
+      }
+      .nav {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0.9rem 1.5rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        color: var(--forest-900);
+        margin-right: auto;
+      }
+      .brand-mark { width: 34px; height: 34px; fill: none; stroke: var(--leaf-600); stroke-width: 2.5; }
+      .brand span { display: flex; flex-direction: column; line-height: 1.1; font-family: "Fraunces", serif; }
+      .brand strong { font-size: 1.05rem; }
+      .brand small { font-size: 0.7rem; color: var(--ink-soft); font-weight: 400; }
+
+      .nav-links {
+        display: flex;
+        gap: 1.75rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .nav-links a { text-decoration: none; position: relative; padding: 0.25em 0; }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 100%;
+        bottom: -2px;
+        height: 2px;
+        background: var(--leaf-600);
+        transition: right 0.2s ease;
+      }
+      .nav-links a:hover::after { right: 0; }
+
+      .nav-toggle-input { display: none; }
+      .nav-toggle {
+        display: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--forest-900);
+        position: relative;
+        transition: transform 0.2s ease;
+      }
+      .nav-toggle span::before { position: absolute; top: -7px; }
+      .nav-toggle span::after { position: absolute; top: 7px; }
+
+      /* Page header (inner pages) */
+      .page-hero {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 2.5rem;
+      }
+      .page-hero h1 { font-size: clamp(2rem, 3.6vw, 2.8rem); max-width: 20ch; }
+      .page-hero .hero-lede { font-size: 1.08rem; max-width: 60ch; color: var(--ink-soft); }
+
+      /* Doorways / cards — reused across homepage and inner pages */
+      .doorways { max-width: 1240px; margin: 3.5rem auto 6rem; padding: 0 1.5rem; position: relative; }
+      .vine { width: 100%; height: 50px; display: block; margin-bottom: -0.5rem; }
+      .vine-path { fill: none; stroke: var(--leaf-500); stroke-width: 3; stroke-linecap: round; }
+      .doorway-eyebrow { text-align: center; margin-bottom: 2rem; }
+
+      .doorway-label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--leaf-600); }
+      .doorway-arrow { display: block; font-weight: 700; color: var(--leaf-600); font-size: 0.9rem; margin-top: 0.75em; }
+
+      .doorway-large, .doorway-card, .doorway-single, .immersive-band {
+        text-decoration: none; color: inherit; display: block;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .doorway-large {
+        background: var(--white);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 14px 40px -20px rgba(30, 58, 41, 0.28);
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        align-items: stretch;
+        margin-bottom: 1.5rem;
+      }
+      .doorway-large:hover { transform: translateY(-4px); box-shadow: 0 20px 46px -20px rgba(30, 58, 41, 0.35); }
+      .doorway-large-image { min-height: 320px; }
+      .doorway-large-image img { width: 100%; height: 100%; object-fit: cover; }
+      .doorway-large-copy { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+      .doorway-large-copy h3 { font-size: 1.7rem; margin: 0.3em 0 0.4em; }
+      .doorway-large-copy p { font-size: 1rem; color: var(--ink-soft); max-width: 32ch; }
+
+      .doorway-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+      .doorway-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+      .doorway-card {
+        background: var(--white);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px -18px rgba(30, 58, 41, 0.25);
+        padding-bottom: 1.5rem;
+      }
+      .doorway-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -18px rgba(30, 58, 41, 0.32); }
+      .doorway-image { aspect-ratio: 4/3; overflow: hidden; }
+      .doorway-image img { width: 100%; height: 100%; object-fit: cover; }
+      .doorway-card .doorway-label { margin: 1.25rem 1.5rem 0.4em; }
+      .doorway-card h3 { font-size: 1.15rem; margin: 0 1.5rem 0.3em; }
+      .doorway-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 1.5rem 1em; }
+      .doorway-card .doorway-arrow { margin: 0 1.5rem; }
+
+      .immersive-band {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        min-height: 340px;
+        margin-bottom: 1.5rem;
+        isolation: isolate;
+      }
+      .immersive-band:hover { transform: translateY(-2px); }
+      .immersive-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+      .immersive-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,41,0.75), transparent 60%); z-index: -1; }
+      .immersive-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 2.5rem; color: #fff; }
+      .immersive-caption .doorway-label { color: var(--sun-400); }
+      .immersive-caption h3 { color: #fff; font-size: 1.6rem; margin: 0.3em 0 0.3em; }
+      .immersive-caption .doorway-arrow { color: #fff; }
+
+      .doorway-single {
+        background: var(--white);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px -18px rgba(30, 58, 41, 0.25);
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        align-items: stretch;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .doorway-single:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -18px rgba(30, 58, 41, 0.32); }
+      .doorway-single .doorway-image { aspect-ratio: auto; height: 100%; }
+      .doorway-single-copy { padding: 1.75rem; display: flex; flex-direction: column; justify-content: center; }
+      .doorway-single-copy h3 { font-size: 1.2rem; margin: 0.3em 0; }
+      .doorway-single-copy p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 0.75em; }
+
+      /* Simple content blocks reused on inner pages */
+      .content-section { max-width: 780px; margin: 4rem auto; padding: 0 1.5rem; }
+      .content-section h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+      .content-section p { color: var(--ink-soft); }
+      .content-wide { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
+
+      .fact-list { display: grid; gap: 0.6em; margin: 1.25em 0; }
+      .fact-list li {
+        font-size: 0.96rem;
+        color: var(--ink-soft);
+        padding-left: 1.4em;
+        position: relative;
+      }
+      .fact-list li::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 0.55em;
+        width: 8px; height: 8px;
+        border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+        background: var(--leaf-500);
+      }
+
+      .info-card {
+        background: var(--white);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px -18px rgba(30, 58, 41, 0.25);
+      }
+      .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+      table.simple-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+      table.simple-table caption { text-align: left; font-weight: 700; margin-bottom: 0.75em; }
+      table.simple-table th, table.simple-table td { text-align: left; padding: 0.85em 1em; border-bottom: 1px solid var(--leaf-200); }
+      table.simple-table th { font-family: "Fraunces", serif; color: var(--forest-900); }
+      table.simple-table td { color: var(--ink-soft); }
+      .table-scroll { overflow-x: auto; }
+
+      /* CTA band */
+      .cta-band {
+        position: relative;
+        margin: 5rem 0 0;
+        padding: 5rem 1.5rem;
+        text-align: center;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .cta-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+      .cta-band::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(30,58,41,0.72), rgba(30,58,41,0.72));
+        z-index: -1;
+      }
+      .cta-band-content { color: #fff; max-width: 620px; margin: 0 auto; }
+      .cta-band h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+      .cta-band .btn-primary { margin-top: 1rem; }
+
+      /* Footer */
+      .site-footer { background: var(--forest-900); color: var(--leaf-100); padding: 4rem 1.5rem 1.5rem; }
+      .footer-grid {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 2.5rem;
+      }
+      .footer-brand p { font-size: 0.9rem; color: var(--leaf-100); opacity: 0.9; }
+      .brand-mark-footer svg { width: 32px; height: 32px; fill: none; stroke: var(--sun-400); stroke-width: 2.5; margin-bottom: 0.75rem; }
+      .footer-col h3 { font-family: "Karla", sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1em; color: var(--sun-400); }
+      .footer-col ul { display: grid; gap: 0.6em; }
+      .footer-col a { text-decoration: none; font-size: 0.9rem; opacity: 0.9; }
+      .footer-col a:hover { opacity: 1; text-decoration: underline; }
+      .footer-bottom {
+        max-width: 1240px;
+        margin: 3rem auto 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        font-size: 0.8rem;
+        opacity: 0.75;
+      }
+
+      /* Reveal animation — visible by default; JS opts in to the animated version */
+      .reveal { opacity: 1; transform: none; }
+      .vine-path { stroke-dashoffset: 0; }
+      .js-reveal .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .js-reveal .reveal.in-view { opacity: 1; transform: translateY(0); }
+      .js-reveal .vine-path {
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        transition: stroke-dashoffset 1.6s ease;
+      }
+      .js-reveal .vine-path.grown { stroke-dashoffset: 0; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .vine-path { stroke-dashoffset: 0; transition: none; }
+        .btn:hover { transform: none; }
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-frame { order: -1; }
+        .doorway-large { grid-template-columns: 1fr; }
+        .doorway-large-image { min-height: 240px; }
+        .doorway-single { grid-template-columns: 1fr; max-width: 420px; }
+        .doorway-single .doorway-image { aspect-ratio: 4/3; }
+        .doorway-grid-3 { grid-template-columns: repeat(2, 1fr); }
+        .info-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 720px) {
+        .nav-toggle { display: block; }
+        .nav-links {
+          position: absolute;
+          top: 100%; left: 0; right: 0;
+          background: var(--cream-50);
+          flex-direction: column;
+          gap: 0;
+          border-bottom: 1px solid var(--leaf-200);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.25s ease;
+        }
+        .nav-links li { border-top: 1px solid var(--leaf-200); }
+        .nav-links a { display: block; padding: 1em 1.5rem; }
+        .nav-toggle-input:checked ~ .nav-links { max-height: 400px; }
+        .nav-cta { display: none; }
+        .vine { display: none; }
+        .doorway-pair { grid-template-columns: 1fr; }
+        .doorway-grid-3 { grid-template-columns: 1fr; }
+        .doorway-large-copy { padding: 1.75rem; }
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      }
+    </style>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const vinePath = document.querySelector(".vine-path");
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!prefersReduced && "IntersectionObserver" in window) {
+        document.documentElement.classList.add("js-reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+
+        const doorwaysSection = document.querySelector(".doorways");
+        const vineObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                vinePath?.classList.add("grown");
+                vineObserver.disconnect();
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        if (doorwaysSection) vineObserver.observe(doorwaysSection);
+
+        setTimeout(() => {
+          revealEls.forEach((el) => el.classList.add("in-view"));
+          vinePath?.classList.add("grown");
+        }, 4000);
+      }
+
+      const navToggle = document.getElementById("nav-toggle");
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
+        });
+      });
+    </script>
+  </body>
+</html>

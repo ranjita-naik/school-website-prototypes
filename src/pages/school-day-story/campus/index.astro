@@ -1,0 +1,73 @@
+---
+import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
+import { Image } from "astro:assets";
+import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
+import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
+
+const facilities = [
+  "Bright, well-ventilated classrooms",
+  "Science & computer laboratories",
+  "Library and reading corners",
+  "Sports field",
+  "School garden",
+  "School transport",
+  "Safe drinking water",
+  "Shaded play areas",
+];
+---
+
+<Layout
+  title="Campus & Facilities — A School Day Story — Green Valley Matriculation School"
+  description="A walk around the Green Valley Matriculation School campus."
+>
+  <section class="page-hero">
+    <p class="eyebrow">7:45 AM · Morning Arrival</p>
+    <h1>The walk in, and everything along it.</h1>
+    <p class="hero-lede">
+      The campus is part of the story too — classrooms, labs, a garden, and shaded paths between them.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1800} height={800} />
+  </section>
+
+  <section class="content-wide facilities-layout">
+    <div>
+      <p class="eyebrow">On Campus</p>
+      <h2>What's here.</h2>
+      <ul class="fact-list">
+        {facilities.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+    <div class="facility-image">
+      <Image src={schoolGarden} alt="A green, well-tended school garden" width={800} height={640} />
+    </div>
+  </section>
+
+  <section class="content-wide mosaic">
+    <figure><Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} /></figure>
+    <figure><Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} /></figure>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 8px; height: 340px; object-fit: cover; width: 100%; }
+
+  .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
+  .facility-image :global(img) { border-radius: 8px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .mosaic :global(img) { border-radius: 8px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic figure { margin: 0; }
+
+  @media (max-width: 1024px) {
+    .facilities-layout { grid-template-columns: 1fr; }
+    .facility-image { order: -1; }
+  }
+  @media (max-width: 720px) {
+    .mosaic { grid-template-columns: 1fr; }
+  }
+</style>

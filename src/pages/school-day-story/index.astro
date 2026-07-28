@@ -1,0 +1,139 @@
+---
+import Layout from "../../layouts/SchoolDayStoryLayout.astro";
+import { Image } from "astro:assets";
+import campusEntrance from "../../assets/photos/shared/campus-entrance-01.jpg";
+import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
+import teacherLecturing from "../../assets/photos/shared/teacher-lecturing-01.jpg";
+import playgroundHeritage from "../../assets/photos/shared/playground-heritage-01.jpg";
+import playgroundGround from "../../assets/photos/shared/playground-ground-01.jpg";
+import forestPathway from "../../assets/photos/shared/forest-pathway-01.jpg";
+
+const glimpses = [
+  { time: "7:45 AM", title: "Morning Arrival", tone: "morning", img: campusEntrance, alt: "Tree-lined school entrance in the early morning", text: "Gates open at a quarter to eight, gardens either side of the walk in.", href: "/school-day-story/campus/", linkLabel: "Walk the campus" },
+  { time: "8:00 AM", title: "Assembly", tone: "morning", img: assemblyPrayer, alt: "Students gathered for morning assembly and prayer", text: "The whole school gathers for a few quiet minutes before the day divides into classrooms.", href: "/school-day-story/about/", linkLabel: "Read our story" },
+  { time: "9:15 AM", title: "Classroom Learning", tone: "morning", img: teacherLecturing, alt: "A teacher instructing students in a classroom", text: "Subjects rotate through the morning, taught with room for questions.", href: "/school-day-story/academics/", linkLabel: "See academics" },
+  { time: "12:30 PM", title: "Lunch & Friendship", tone: "midday", img: playgroundHeritage, alt: "Students together on the school grounds during a break", text: "Lunch is shared on the grounds — the day's loudest kind of learning: friendship.", href: "/school-day-story/student-life/", linkLabel: "Student life" },
+  { time: "1:30 PM", title: "Sports & Play", tone: "afternoon", img: playgroundGround, alt: "A green sports field used for games and athletics", text: "The afternoon opens onto the field, and the day gets loud again.", href: "/school-day-story/student-life/", linkLabel: "Student life" },
+  { time: "3:30 PM", title: "Reflection & Home", tone: "evening", img: forestPathway, alt: "A quiet garden path at the end of the day", text: "The day closes the way it opened — a walk past the trees, a little more than they knew that morning.", href: "/school-day-story/admissions/", linkLabel: "Begin admissions" },
+];
+
+const quickLinks = [
+  { label: "About", href: "/school-day-story/about/" },
+  { label: "Academics", href: "/school-day-story/academics/" },
+  { label: "Student Life", href: "/school-day-story/student-life/" },
+  { label: "Campus", href: "/school-day-story/campus/" },
+  { label: "Admissions", href: "/school-day-story/admissions/" },
+  { label: "Contact", href: "/school-day-story/contact/" },
+];
+---
+
+<Layout
+  title="Green Valley Matriculation School — A School Day Story"
+  description="Green Valley Matriculation School, Nagercoil — follow a day at school, from morning assembly to home. Prototype concept: A School Day Story."
+  transparentHero
+>
+  <section class="hero" id="top">
+    <Image class="hero-bg" src={assemblyPrayer} alt="Students gathered for morning assembly outside the school building" width={2000} height={1250} priority />
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Green Valley Matriculation School · Nagercoil</p>
+      <h1>Every school day is a new story of discovery.</h1>
+      <p class="hero-lede">Come through the gate. This is where the story begins.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#doorways">Find Your Way In</a>
+        <a class="btn btn-ghost-light" href="/school-day-story/admissions/">Admissions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <p class="eyebrow">Our Story</p>
+    <h2>A Kindergarten–Class 10 school built around one idea.</h2>
+    <p>
+      We help students build strong foundations, confident character, and a lifelong love of
+      learning — through the accumulation of ordinary, well-spent days. Here's a taste of one.
+    </p>
+  </section>
+
+  <section class="glimpses" id="doorways">
+    <ul class="glimpse-reel">
+      {glimpses.map((c) => (
+        <li class={`glimpse tone-${c.tone} reveal-cinema`}>
+          <a href={c.href}>
+            <div class="glimpse-media">
+              <Image class="glimpse-img" src={c.img} alt={c.alt} width={1600} height={950} />
+              <div class="glimpse-scrim" aria-hidden="true"></div>
+            </div>
+            <div class="glimpse-copy">
+              <span class="glimpse-time">{c.time}</span>
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+              <span class="glimpse-cta" aria-hidden="true">{c.linkLabel} →</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="quick-links">
+    <p class="eyebrow center">Or Go Straight There</p>
+    <ul class="link-row">
+      {quickLinks.map((l) => (
+        <li><a href={l.href}>{l.label}</a></li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero { position: relative; height: 78vh; min-height: 480px; margin-top: -68px; display: flex; align-items: flex-end; }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(46,34,51,0.88), rgba(46,34,51,0.25) 55%, rgba(46,34,51,0.5)); }
+  .hero-content { position: relative; color: #fff; max-width: 720px; padding: 0 1.5rem 4rem; margin: 0 auto; width: 100%; box-sizing: border-box; }
+  .hero-content :global(.eyebrow) { color: var(--mango-400); }
+  .hero h1 { font-size: clamp(2.1rem, 4.5vw, 3.4rem); color: #fff; }
+  .hero-lede { font-size: 1.1rem; max-width: 46ch; color: #f1e7ea; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+  /* Story intro */
+  .story { max-width: 720px; margin: 4.5rem auto; padding: 0 1.5rem; text-align: center; }
+  .story h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
+  .story p:last-child { color: var(--ink-soft); }
+
+  /* Glimpses — a cinematic reel that doubles as navigation */
+  .glimpses { max-width: 980px; margin: 0 auto 5rem; padding: 0 1.5rem; }
+  .glimpse-reel { display: grid; gap: 5rem; }
+  .glimpse { position: relative; border-radius: 8px; overflow: hidden; }
+  .glimpse a { display: block; color: inherit; text-decoration: none; }
+  .glimpse-media { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+  .glimpse-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.09); transition: transform 2.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  :global(.js-cinema) .in-view .glimpse-img { transform: scale(1); }
+  .glimpse-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,15,18,0.82) 0%, rgba(20,15,18,0.25) 45%, transparent 75%); }
+  .tone-morning .glimpse-scrim { background: linear-gradient(to top, rgba(24,32,44,0.82) 0%, rgba(24,32,44,0.25) 45%, transparent 75%); }
+  .tone-midday .glimpse-scrim { background: linear-gradient(to top, rgba(40,26,16,0.8) 0%, rgba(40,26,16,0.22) 45%, transparent 75%); }
+  .tone-afternoon .glimpse-scrim { background: linear-gradient(to top, rgba(46,28,10,0.8) 0%, rgba(46,28,10,0.22) 45%, transparent 75%); }
+  .tone-evening .glimpse-scrim { background: linear-gradient(to top, rgba(30,20,30,0.85) 0%, rgba(30,20,30,0.3) 45%, transparent 75%); }
+  .glimpse-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 2rem 1.75rem; color: #fff; }
+  .glimpse-time { font-family: "Caveat", cursive; font-size: 1.7rem; color: var(--mango-400); display: block; }
+  .glimpse h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 0.1em 0 0.3em; color: #fff; }
+  .glimpse p { color: rgba(255,255,255,0.88); margin: 0; font-size: 0.98rem; max-width: 48ch; }
+  .glimpse-cta { display: inline-block; margin-top: 0.9em; font-weight: 700; font-size: 0.88rem; color: var(--mango-400); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glimpse-img { transform: scale(1); transition: none; }
+  }
+
+  /* Quick links */
+  .quick-links { max-width: 700px; margin: 0 auto 5rem; padding: 0 1.5rem; text-align: center; }
+  .link-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 0; margin-top: 0.5rem; }
+  .link-row li:not(:last-child)::after { content: "·"; margin: 0 0.9em; color: var(--terracotta-600); }
+  .link-row li { display: inline; }
+  .link-row a { text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; }
+  .link-row a:hover { border-color: var(--terracotta-600); }
+
+  @media (max-width: 720px) {
+    .hero { height: auto; min-height: 420px; padding-top: 3rem; }
+  }
+</style>

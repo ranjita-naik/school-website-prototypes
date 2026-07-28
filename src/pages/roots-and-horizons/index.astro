@@ -1,0 +1,123 @@
+---
+import Layout from "../../layouts/RootsAndHorizonsLayout.astro";
+import { Image } from "astro:assets";
+import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
+import classroomChildren from "../../assets/photos/shared/classroom-children-tn-01.jpg";
+
+const values = ["Integrity", "Discipline", "Compassion", "Excellence"];
+
+const directory = [
+  { index: "I", title: "About the School", label: "The Story", desc: "How Green Valley began, and what it still believes.", href: "/roots-and-horizons/about/" },
+  { index: "II", title: "Academics", label: "The Classrooms", desc: "What's taught, and how, from LKG to Class 10.", href: "/roots-and-horizons/academics/" },
+  { index: "III", title: "Student Life", label: "The Playground", desc: "Sport, clubs, and life beyond the classroom.", href: "/roots-and-horizons/student-life/" },
+  { index: "IV", title: "Campus & Facilities", label: "The Walk Around Campus", desc: "Classrooms, laboratories, library, and grounds.", href: "/roots-and-horizons/campus/" },
+  { index: "V", title: "Admissions", label: "The Reception Office", desc: "How to enquire, visit, and join us.", href: "/roots-and-horizons/admissions/" },
+  { index: "VI", title: "Contact", label: "The Front Desk", desc: "Reach us, or plan a visit.", href: "/roots-and-horizons/contact/" },
+];
+---
+
+<Layout
+  title="Green Valley Matriculation School — Roots and Horizons"
+  description="Green Valley Matriculation School, Nagercoil — values, discipline, and academic strength for Kindergarten through Class 10. Prototype concept: Roots and Horizons."
+>
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Nagercoil, Tamil Nadu · Kindergarten – Class 10</p>
+      <h1>Grounded in values. Prepared for tomorrow.</h1>
+      <p class="hero-lede">
+        Green Valley Matriculation School has spent over two decades building character
+        alongside academic strength — a school families choose to trust, year after year.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/roots-and-horizons/admissions/">Learn About Admissions</a>
+        <a class="btn btn-ghost" href="/roots-and-horizons/about/">Our Heritage</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <Image src={assemblyPrayer} alt="Students standing together in morning assembly and prayer outside the school building" width={1400} height={1000} priority />
+    </div>
+  </section>
+
+  <div class="hairline" aria-hidden="true"><span class="lattice"></span></div>
+
+  <section class="welcome">
+    <p class="eyebrow center">Founded 1998 <em>(placeholder)</em></p>
+    <h2 class="center">Held to four values, taught by example.</h2>
+    <ul class="value-line">
+      {values.map((v) => <li>{v}</li>)}
+    </ul>
+    <p class="center lede">
+      Green Valley was founded on a simple belief: that a school's first duty is to be worth
+      a family's trust — and that discipline and joy are not opposites, but partners.
+      <a class="text-link" href="/roots-and-horizons/about/">Read our full story →</a>
+    </p>
+  </section>
+
+  <div class="hairline" aria-hidden="true"><span class="lattice"></span></div>
+
+  <section class="split-feature">
+    <div class="split-image">
+      <Image src={classroomChildren} alt="Students smiling and engaged at their desks in a classroom" width={1000} height={1100} />
+    </div>
+    <div class="split-copy">
+      <p class="eyebrow">Leadership</p>
+      <h2>A word from the Principal.</h2>
+      <blockquote>
+        We ask a great deal of our students — and we hold ourselves to the same standard.
+      </blockquote>
+      <p class="attribution">— Principal's Message, Green Valley Matriculation School <em>(placeholder)</em></p>
+      <a class="text-link" href="/roots-and-horizons/about/#principal">Read the full message →</a>
+    </div>
+  </section>
+
+  <div class="hairline" aria-hidden="true"><span class="lattice"></span></div>
+
+  <section class="directory-section">
+    <p class="eyebrow center">Where to Go Next</p>
+    <h2 class="center">A short directory of the school.</h2>
+    <ol class="directory">
+      {directory.map((d) => (
+        <li class="directory-row">
+          <a href={d.href}>
+            <span class="directory-index">{d.index}</span>
+            <span class="directory-text">
+              <span class="directory-label">{d.label}</span>
+              <strong>{d.title}</strong>
+              <span class="directory-desc">{d.desc}</span>
+            </span>
+            <span class="directory-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 1240px; margin: 0 auto; padding: 3.5rem 1.5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+  .hero h1 { font-size: clamp(2.1rem, 4vw, 3rem); }
+  .hero-lede { color: var(--ink-soft); max-width: 44ch; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .hero-image { border: 1px solid var(--line); padding: 10px; background: #fff; }
+  .hero-image img { width: 100%; aspect-ratio: 4/3.4; object-fit: cover; }
+
+  .welcome { max-width: 700px; margin: 4.5rem auto; padding: 0 1.5rem; }
+  .welcome h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
+  .value-line { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75em 1.5em; margin: 1.5rem 0; font-family: "Playfair Display", serif; font-size: 1.05rem; }
+  .value-line li { position: relative; padding-right: 1.6em; }
+  .value-line li:not(:last-child)::after { content: "·"; position: absolute; right: 0.5em; color: var(--marigold-500); }
+
+  .split-feature { max-width: 1000px; margin: 4.5rem auto; padding: 0 1.5rem; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3.5rem; align-items: center; }
+  .split-image { border: 1px solid var(--line); padding: 10px; background: #fff; align-self: stretch; }
+  .split-image img { width: 100%; height: 100%; aspect-ratio: 4/4.2; object-fit: cover; }
+  .split-copy h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+  .split-copy blockquote { font-family: "Playfair Display", serif; font-style: italic; font-size: 1.2rem; margin: 0 0 1em; color: var(--indigo-900); }
+  .attribution { font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image { order: -1; }
+    .split-feature { grid-template-columns: 1fr; }
+    .split-image { max-width: 360px; }
+  }
+</style>

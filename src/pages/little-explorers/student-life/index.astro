@@ -1,0 +1,55 @@
+---
+import Layout from "../../../layouts/LittleExplorersLayout.astro";
+import { Image } from "astro:assets";
+import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+
+const activities = [
+  "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
+  "Art", "Science Club", "Literary Club", "Environmental Club", "Quiz Club", "Community Service",
+];
+---
+
+<Layout
+  title="Student Life — Little Explorers — Green Valley Matriculation School"
+  description="Sport, clubs, and everyday life for students at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Playground</p>
+    <h1>Running, kicking, cheering.</h1>
+    <p class="hero-lede">
+      Twelve activities, a full sports field, and a morning assembly that starts the day together.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={playgroundGround} alt="A green sports field used for games and athletics" width={1600} height={700} />
+  </section>
+
+  <section class="content-wide">
+    <p class="eyebrow center">Clubs &amp; Activities</p>
+    <h2 style="text-align:center;">Twelve ways to spend an afternoon.</h2>
+    <ul class="activity-grid">
+      {activities.map((a) => <li>{a}</li>)}
+    </ul>
+  </section>
+
+  <section class="story-image">
+    <Image src={assemblyPrayer} alt="Students standing together for morning assembly" width={1600} height={700} />
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; width: 100%; }
+
+  .activity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+  .activity-grid li { background: #fff; border-radius: 16px; padding: 1.1em 0.5em; text-align: center; font-weight: 700; font-size: 0.95rem; box-shadow: 0 8px 20px -14px rgba(42,36,56,0.25); }
+
+  @media (max-width: 1024px) {
+    .activity-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .activity-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

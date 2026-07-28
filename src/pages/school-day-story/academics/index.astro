@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
+import { Image } from "astro:assets";
+import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+
+const stages = [
+  { stage: "Kindergarten", classes: "Ages 3–5", detail: "Play-based foundations in language, number, and social skill." },
+  { stage: "Primary", classes: "Classes 1–5", detail: "Core subjects taught with structured daily practice." },
+  { stage: "Middle School", classes: "Classes 6–8", detail: "Widening subjects, growing independence." },
+  { stage: "Secondary", classes: "Classes 9–10", detail: "Board-aligned preparation with close mentorship." },
+];
+---
+
+<Layout
+  title="Academics — A School Day Story — Green Valley Matriculation School"
+  description="What's taught, and how, at Green Valley Matriculation School — Kindergarten through Class 10."
+>
+  <section class="page-hero">
+    <p class="eyebrow">9:15 AM · Classroom Learning</p>
+    <h1>What happens between the bells.</h1>
+    <p class="hero-lede">
+      Subjects rotate through the morning, taught with room for questions — one continuous
+      journey from Kindergarten to Class 10.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1800} height={800} />
+  </section>
+
+  <section class="content-wide">
+    <div class="table-scroll">
+      <table class="simple-table">
+        <caption>Academic stages</caption>
+        <thead><tr><th>Stage</th><th>Classes</th><th>Focus</th></tr></thead>
+        <tbody>
+          {stages.map((s) => <tr><td>{s.stage}</td><td>{s.classes}</td><td>{s.detail}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">How We Teach</p>
+    <h2>Lessons that leave room for questions.</h2>
+    <p>
+      Language, mathematics, science, and social studies are taught alongside art, music, and
+      physical education from the earliest years. Science and computer literacy begin with
+      hands-on activity rather than the textbook.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 8px; height: 320px; object-fit: cover; width: 100%; }
+</style>

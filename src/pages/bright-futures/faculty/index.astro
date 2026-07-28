@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/BrightFuturesLayout.astro";
+import { Image } from "astro:assets";
+import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+
+const leadership = [
+  { name: "Mrs. Lakshmi Narayanan", role: "Principal" },
+  { name: "Mr. Anand Kumar", role: "Vice Principal" },
+  { name: "Mrs. Priya Selvam", role: "Head of Academics" },
+  { name: "Mr. Joseph Ravi", role: "Head of Student Affairs" },
+];
+---
+
+<Layout
+  title="Faculty & Leadership — Bright Futures — Green Valley Matriculation School"
+  description="Faculty and leadership at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Faculty &amp; Leadership</p>
+    <h1>The team behind the results.</h1>
+    <p class="hero-lede">All names below are placeholders, standing in for the school's real teaching staff.</p>
+  </section>
+
+  <section class="story-image">
+    <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1800} height={700} />
+  </section>
+
+  <section class="content-wide">
+    <ul class="leader-grid">
+      {leadership.map((l) => (
+        <li class="leader-card">
+          <h3>{l.name}</h3>
+          <p>{l.role} <em>(placeholder name)</em></p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">How We Hire</p>
+    <h2>Selected for rigor and warmth.</h2>
+    <p>
+      Teachers at Green Valley are chosen for both subject mastery and classroom presence.
+      Class sizes stay small enough that every teacher can track each student's progress closely.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 1280px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 22px; height: 320px; object-fit: cover; width: 100%; }
+
+  .leader-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 1rem; }
+  .leader-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; text-align: center; }
+  .leader-card h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+  .leader-card p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+
+  @media (max-width: 1024px) {
+    .leader-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .leader-grid { grid-template-columns: 1fr; }
+  }
+</style>

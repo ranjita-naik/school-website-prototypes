@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
+import { Image } from "astro:assets";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+---
+
+<Layout
+  title="About the School — A School Day Story — Green Valley Matriculation School"
+  description="How Green Valley Matriculation School began, and a message from the Principal."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Our Story</p>
+    <h1>Before the gates open each morning.</h1>
+    <p class="hero-lede">
+      Green Valley Matriculation School is a Kindergarten–Class 10 school in Nagercoil, Tamil Nadu.
+      This is the story behind the story.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={assemblyPrayer} alt="Students standing together for morning assembly and prayer" width={1800} height={800} />
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Our Beginning</p>
+    <h2>Founded around one idea.</h2>
+    <p>
+      Green Valley Matriculation School was founded on a simple belief: that a good education
+      isn't one big moment, but the accumulation of ordinary, well-spent days.
+      <em>(Placeholder history — founding year and milestones to be confirmed with the school.)</em>
+    </p>
+    <p>
+      <strong>Vision.</strong> Students who leave with strong foundations, confident character,
+      and a lifelong love of learning.
+      <br /><strong>Mission.</strong> To make every ordinary school day count.
+    </p>
+  </section>
+
+  <section class="content-section principal-section" id="principal">
+    <p class="eyebrow">Leadership</p>
+    <h2>A message from the Principal.</h2>
+    <blockquote class="pull-quote">
+      A school day should ask a lot of a child — and give them just as much back. We try to
+      make sure every one of ours does.
+    </blockquote>
+    <p class="principal-attribution">— Mrs. Lakshmi Narayanan, Principal <em>(placeholder name)</em></p>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 8px; height: 340px; object-fit: cover; width: 100%; }
+
+  .pull-quote {
+    font-family: "Lora", serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--plum-900);
+    margin: 1.5rem 0 1rem;
+    border-left: 3px solid var(--terracotta-600);
+    padding-left: 1.5rem;
+  }
+  .principal-attribution { font-size: 0.85rem; color: var(--ink-soft); }
+</style>

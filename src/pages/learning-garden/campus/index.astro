@@ -1,0 +1,80 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+import { Image } from "astro:assets";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
+import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
+import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import forestPathway from "../../../assets/photos/shared/forest-pathway-01.jpg";
+
+const facilities = [
+  "Bright, well-ventilated classrooms",
+  "Science & computer laboratories",
+  "Library and reading corners",
+  "Activity rooms for art and music",
+  "Sports field",
+  "School garden",
+  "School transport",
+  "Safe drinking water",
+  "Shaded play areas",
+];
+---
+
+<Layout
+  title="Campus & Facilities — The Learning Garden — Green Valley Matriculation School"
+  description="A walk around the Green Valley Matriculation School campus — classrooms, labs, library, and gardens."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Walk Around Campus</p>
+    <h1>Gardens, labs, and shaded paths.</h1>
+    <p class="hero-lede">
+      The campus is built the way the school teaches — with room to breathe.
+    </p>
+  </section>
+
+  <a class="immersive-band reveal" href="/learning-garden/admissions/">
+    <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1800} height={800} />
+    <div class="immersive-scrim" aria-hidden="true"></div>
+    <div class="immersive-caption">
+      <span class="doorway-label">The Reception Office</span>
+      <h3>Curious to see it in person?</h3>
+      <span class="doorway-arrow" aria-hidden="true">Learn about admissions →</span>
+    </div>
+  </a>
+
+  <section class="content-wide facilities-layout">
+    <div>
+      <p class="eyebrow">On Campus</p>
+      <h2>What's here.</h2>
+      <ul class="fact-list">
+        {facilities.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+    <div class="facility-image">
+      <Image src={schoolGarden} alt="A green, well-tended school garden" width={800} height={640} />
+    </div>
+  </section>
+
+  <section class="mosaic content-wide reveal">
+    <div class="mosaic-grid">
+      <Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} />
+      <Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} />
+      <Image src={forestPathway} alt="A quiet garden path on campus" width={700} height={520} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
+  .facility-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .mosaic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .mosaic-grid :global(img) { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+
+  @media (max-width: 1024px) {
+    .facilities-layout { grid-template-columns: 1fr; }
+    .facility-image { order: -1; }
+  }
+  @media (max-width: 720px) {
+    .mosaic-grid { grid-template-columns: 1fr; }
+  }
+</style>

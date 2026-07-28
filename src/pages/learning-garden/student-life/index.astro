@@ -1,0 +1,90 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+import { Image } from "astro:assets";
+import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
+
+const activities = [
+  "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
+  "Art", "Science Club", "Literary Club", "Environmental Club", "Quiz Club", "Community Service",
+];
+---
+
+<Layout
+  title="Student Life — The Learning Garden — Green Valley Matriculation School"
+  description="Sport, clubs, and everyday life for students at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Playground</p>
+    <h1>Sport, clubs, and time to just play.</h1>
+    <p class="hero-lede">
+      Alongside the classroom, there's a whole rhythm of assemblies, activities, and free time
+      that shapes a child's day.
+    </p>
+  </section>
+
+  <a class="immersive-band reveal" href="/learning-garden/campus/">
+    <Image src={playgroundGround} alt="A green sports field bordered by trees, used for play and games" width={1800} height={800} />
+    <div class="immersive-scrim" aria-hidden="true"></div>
+    <div class="immersive-caption">
+      <span class="doorway-label">Open Fields</span>
+      <h3>Sport and free play, most afternoons.</h3>
+      <span class="doorway-arrow" aria-hidden="true">See the campus →</span>
+    </div>
+  </a>
+
+  <section class="content-section">
+    <p class="eyebrow">Morning Assembly</p>
+    <h2>The day begins together.</h2>
+    <p>
+      Each morning, the whole school gathers for a short assembly — a few quiet minutes before
+      the day divides into classrooms. It's a small ritual, but a steady one.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <p class="eyebrow center" style="text-align:center;">Clubs &amp; Activities</p>
+    <h2 style="text-align:center;">Twelve ways to spend an afternoon.</h2>
+    <ul class="activity-grid">
+      {activities.map((a) => <li>{a}</li>)}
+    </ul>
+  </section>
+
+  <section class="mosaic content-wide reveal">
+    <div class="mosaic-grid">
+      <Image src={assemblyPrayer} alt="Students standing together for morning assembly" width={700} height={520} />
+      <Image src={computerLab} alt="Students working at computers in the school's computer laboratory" width={700} height={520} />
+      <Image src={classroomChildrenTn2} alt="Students at their desks reading and writing" width={700} height={520} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .activity-grid li {
+    background: var(--leaf-100);
+    border: 1px solid var(--leaf-200);
+    border-radius: 16px;
+    padding: 1.1em 0.5em;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .mosaic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .mosaic-grid :global(img) { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+
+  @media (max-width: 1024px) {
+    .activity-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .activity-grid { grid-template-columns: repeat(2, 1fr); }
+    .mosaic-grid { grid-template-columns: 1fr; }
+  }
+</style>

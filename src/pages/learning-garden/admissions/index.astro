@@ -1,0 +1,139 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+import { Image } from "astro:assets";
+import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+
+const steps = [
+  { step: "Enquire", detail: "Share a few details about your child, by phone or email, and we'll get in touch within two working days." },
+  { step: "Visit", detail: "Walk the campus, meet teachers, and see a class in session." },
+  { step: "Assess", detail: "A simple, age-appropriate conversation — not a stressful exam." },
+  { step: "Join", detail: "Confirm your seat and begin the school year with us." },
+];
+
+const documents = [
+  "Birth certificate (original and copy)",
+  "Transfer certificate, if applicable",
+  "Previous year's report card, if applicable",
+  "Address proof",
+  "Passport-size photographs",
+];
+
+const faqs = [
+  { q: "What ages does Green Valley accept?", a: "Kindergarten begins at age 3. Older classes accept transfers where seats are available." },
+  { q: "Is there an entrance exam?", a: "No. Admission is based on a short, age-appropriate conversation with the child and parents." },
+  { q: "When does the academic year begin?", a: "The academic year and admission dates are placeholders pending confirmation from the school." },
+];
+---
+
+<Layout
+  title="Admissions — The Learning Garden — Green Valley Matriculation School"
+  description="How to enquire, visit, and join Green Valley Matriculation School — admissions process, documents, and frequently asked questions."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Reception Office</p>
+    <h1>How to enquire, visit, and join us.</h1>
+    <p class="hero-lede">
+      A short, calm process — not a rushed one. Here's exactly how it works.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <p class="eyebrow center" style="text-align:center;">Admissions Path</p>
+    <h2 style="text-align:center;">Four simple steps.</h2>
+    <ol class="steps">
+      {steps.map((item, i) => (
+        <li class="step">
+          <span class="step-leaf" aria-hidden="true">{i + 1}</span>
+          <h3>{item.step}</h3>
+          <p>{item.detail}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="content-wide info-grid">
+    <div class="info-card">
+      <p class="eyebrow">Required Documents</p>
+      <h2>What to bring.</h2>
+      <ul class="fact-list">
+        {documents.map((d) => <li>{d}</li>)}
+      </ul>
+    </div>
+    <div class="info-card">
+      <p class="eyebrow">Classes Offered</p>
+      <h2>Kindergarten to Class 10.</h2>
+      <ul class="fact-list">
+        <li>Kindergarten — Ages 3–5</li>
+        <li>Primary — Classes 1–5</li>
+        <li>Middle School — Classes 6–8</li>
+        <li>Secondary — Classes 9–10</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Fees</p>
+    <h2>A note on cost.</h2>
+    <p>
+      Fee details vary by class and are shared directly during your enquiry.
+      <em>(Placeholder — actual fee structure to be provided by the school before publishing.)</em>
+    </p>
+  </section>
+
+  <section class="content-section faq">
+    <p class="eyebrow">Frequently Asked</p>
+    <h2>A few common questions.</h2>
+    <dl>
+      {faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))}
+    </dl>
+  </section>
+
+  <section class="cta-band reveal">
+    <Image class="cta-bg" src={computerLab} alt="" role="presentation" width={1800} height={700} />
+    <div class="cta-band-content">
+      <h2>Ready to talk it through?</h2>
+      <p>Call or email the school office — we're glad to answer questions before you decide to visit.</p>
+      <a class="btn btn-primary" href="/learning-garden/contact/">Contact the School</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .step { text-align: center; padding: 1.5rem 1rem; }
+  .step-leaf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+    background: var(--leaf-600);
+    color: #fff;
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .step h3 { font-size: 1.05rem; margin-bottom: 0.25em; }
+  .step p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+
+  .faq dt { font-family: "Fraunces", serif; font-weight: 600; margin-top: 1.25em; }
+  .faq dd { margin: 0.3em 0 0; color: var(--ink-soft); }
+
+  @media (max-width: 1024px) {
+    .steps { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>

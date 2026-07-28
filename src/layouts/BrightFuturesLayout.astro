@@ -1,0 +1,289 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p class="prototype-flag">Prototype concept 2 of 5 — "Bright Futures." Placeholder school, names, and content — not a real institution.</p>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="/bright-futures/">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="4" y="20" width="10" height="16" />
+            <rect x="15" y="10" width="10" height="26" />
+            <rect x="26" y="4" width="10" height="32" />
+          </svg>
+          <span>GREEN VALLEY</span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Open menu"><span></span></label>
+        <ul class="nav-links">
+          <li><a href="/bright-futures/academics/">Academics</a></li>
+          <li><a href="/bright-futures/student-life/">Student Life</a></li>
+          <li><a href="/bright-futures/admissions/">Admissions</a></li>
+          <li><a href="/bright-futures/contact/">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="/bright-futures/admissions/">Learn About Admissions</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">GREEN VALLEY</p>
+          <p>Green Valley Matriculation School<br />Nagercoil, Tamil Nadu — 629001 <em>(placeholder address)</em></p>
+          <p>+91 98765 43210 · info@greenvalley.example <em>(placeholder)</em></p>
+        </div>
+        <nav class="footer-col" aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/bright-futures/about/">About the School</a></li>
+            <li><a href="/bright-futures/academics/">Academics</a></li>
+            <li><a href="/bright-futures/admissions/">Admissions</a></li>
+            <li><a href="/bright-futures/campus/">Campus &amp; Facilities</a></li>
+            <li><a href="/bright-futures/gallery/">Gallery</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="For Parents">
+          <h3>For Parents</h3>
+          <ul>
+            <li><a href="/bright-futures/parents/">Parent Resources</a></li>
+            <li><a href="/bright-futures/events/">Events &amp; Announcements</a></li>
+            <li><a href="/bright-futures/faculty/">Faculty &amp; Leadership</a></li>
+            <li><a href="/bright-futures/policies/">Policies &amp; Disclosures</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h3>Office Hours</h3>
+          <p>Monday–Saturday<br />8:30 AM – 3:30 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Green Valley Matriculation School. Placeholder content for design prototype purposes only.</p>
+      </div>
+    </footer>
+
+    <style is:global>
+      body {
+        --cobalt-700: #1b3a8c;
+        --cobalt-900: #10204f;
+        --coral-500: #ff6b57;
+        --sun-400: #ffc93c;
+        --aqua-300: #6fd6c4;
+        --white-warm: #fafbff;
+        --ink-900: #10182b;
+        --ink-soft: #4a5170;
+        --line: #e2e6f5;
+
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--ink-900);
+        background: var(--white-warm);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 0 0 0.5em;
+        letter-spacing: -0.01em;
+      }
+      p { margin: 0 0 1em; }
+      ul, ol { list-style: none; margin: 0; padding: 0; }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; }
+
+      :focus-visible { outline: 3px solid var(--cobalt-700); outline-offset: 3px; }
+
+      .prototype-flag { margin: 0; text-align: center; font-size: 0.78rem; background: var(--ink-900); color: #fff; padding: 0.4em 1em; }
+      .skip-link { position: absolute; left: -999px; top: 0; background: var(--cobalt-700); color: #fff; padding: 0.75em 1.25em; z-index: 100; }
+      .skip-link:focus { left: 0; }
+
+      .eyebrow { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; font-weight: 700; color: var(--coral-500); margin: 0 0 0.6em; }
+      .eyebrow.center { text-align: center; }
+
+      .btn {
+        display: inline-block;
+        padding: 0.85em 1.7em;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary { background: var(--coral-500); color: #fff; box-shadow: 0 10px 24px -10px rgba(255,107,87,0.55); }
+      .btn-ghost { background: transparent; border-color: var(--cobalt-700); color: var(--cobalt-700); }
+      .btn-large { padding: 1em 2.2em; font-size: 1.05rem; }
+
+      .text-link { display: inline-block; margin-top: 0.5em; font-weight: 700; color: var(--cobalt-700); text-decoration: none; }
+      .text-link:hover { text-decoration: underline; }
+
+      /* Header */
+      .site-header { position: sticky; top: 0; z-index: 50; background: rgba(250,251,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+      .nav { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; padding: 0.85rem 1.5rem; }
+      .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink-900); margin-right: auto; font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: 0.02em; font-size: 1rem; }
+      .brand-mark { width: 30px; height: 30px; fill: var(--coral-500); }
+      .nav-links { display: flex; gap: 1.75rem; font-weight: 600; font-size: 0.92rem; }
+      .nav-links a { text-decoration: none; position: relative; padding: 0.3em 0; }
+      .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 3px; background: var(--coral-500); transition: right 0.2s ease; }
+      .nav-links a:hover::after { right: 0; }
+      .nav-toggle-input { display: none; }
+      .nav-toggle { display: none; cursor: pointer; padding: 0.5rem; }
+      .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { content: ""; display: block; width: 24px; height: 2px; background: var(--ink-900); position: relative; }
+      .nav-toggle span::before { position: absolute; top: -7px; }
+      .nav-toggle span::after { position: absolute; top: 7px; }
+
+      /* Page header (inner pages) */
+      .page-hero { max-width: 1280px; margin: 0 auto; padding: 3.5rem 1.5rem 2.5rem; }
+      .page-hero h1 { font-size: clamp(2rem, 3.8vw, 2.8rem); max-width: 22ch; }
+      .page-hero .hero-lede { font-size: 1.08rem; max-width: 60ch; color: var(--ink-soft); }
+
+      /* Doorways */
+      .doorways { max-width: 1280px; margin: 5rem auto; padding: 0 1.5rem; }
+      .section-heading { text-align: center; max-width: 680px; margin: 0 auto 2.5rem; }
+      .section-heading h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+      .doorway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+      .doorway-card { background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+      .doorway-card:hover { transform: translateY(-5px); box-shadow: 0 16px 30px -18px rgba(16,24,43,0.2); }
+      .doorway-card a { display: block; text-decoration: none; color: inherit; }
+      .doorway-image { aspect-ratio: 4/3; }
+      .doorway-image img { width: 100%; height: 100%; object-fit: cover; }
+      .doorway-dot { display: block; width: 10px; height: 10px; border-radius: 50%; margin: 1.5rem 1.5rem 0.6em; }
+      .doorway-card h3 { font-size: 1.1rem; margin: 0 1.5rem 0.35em; }
+      .doorway-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 1.5rem 1em; }
+      .doorway-arrow { display: block; margin: 0 1.5rem 1.5rem; font-weight: 700; color: var(--cobalt-700); font-size: 0.88rem; }
+      .doorway-simple { display: flex; align-items: center; background: #eef1fd; }
+      .doorway-simple h3 { margin-top: 1.75rem; }
+      .accent-coral .doorway-dot { background: var(--coral-500); }
+      .accent-aqua .doorway-dot { background: var(--aqua-300); }
+      .accent-sun .doorway-dot { background: var(--sun-400); }
+      .accent-cobalt .doorway-dot { background: var(--cobalt-700); }
+
+      /* Simple content blocks reused on inner pages */
+      .content-section { max-width: 780px; margin: 4rem auto; padding: 0 1.5rem; }
+      .content-section h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+      .content-section p { color: var(--ink-soft); }
+      .content-wide { max-width: 1280px; margin: 4rem auto; padding: 0 1.5rem; }
+
+      .fact-list { display: grid; gap: 0.6em; margin: 1.25em 0; }
+      .fact-list li { font-size: 0.96rem; color: var(--ink-soft); padding-left: 1.4em; position: relative; }
+      .fact-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 2px; background: var(--coral-500); }
+
+      .info-card { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 2rem; }
+      .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+      table.simple-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+      table.simple-table caption { text-align: left; font-weight: 700; margin-bottom: 0.75em; }
+      table.simple-table th, table.simple-table td { text-align: left; padding: 0.85em 1em; border-bottom: 1px solid var(--line); }
+      table.simple-table th { font-family: "Space Grotesk", sans-serif; color: var(--ink-900); }
+      table.simple-table td { color: var(--ink-soft); }
+      .table-scroll { overflow-x: auto; }
+
+      /* CTA band */
+      .cta-band { background: var(--ink-900); color: #fff; text-align: center; padding: 5rem 1.5rem; margin-top: 5rem; }
+      .cta-band h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.3rem); max-width: 700px; margin-left: auto; margin-right: auto; }
+      .cta-band p { color: #c3caf0; max-width: 560px; margin: 0 auto 1.5rem; }
+
+      /* Footer */
+      .site-footer { background: #fff; border-top: 1px solid var(--line); padding: 4rem 1.5rem 1.5rem; }
+      .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; }
+      .footer-logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: 0.04em; color: var(--cobalt-700); margin-bottom: 0.75em; }
+      .footer-brand p { font-size: 0.88rem; color: var(--ink-soft); }
+      .footer-col h3 { font-family: "Inter", sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1em; color: var(--coral-500); }
+      .footer-col ul { display: grid; gap: 0.6em; }
+      .footer-col a { text-decoration: none; font-size: 0.88rem; color: var(--ink-soft); }
+      .footer-col a:hover { color: var(--cobalt-700); }
+      .footer-bottom { max-width: 1280px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--ink-soft); }
+
+      /* Reveal (visible by default; JS opts in) */
+      .reveal { opacity: 1; transform: none; }
+      .js-reveal .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .js-reveal .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .btn:hover { transform: none; }
+      }
+
+      @media (max-width: 1024px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-visual { order: -1; max-width: 420px; margin: 0 auto; }
+        .doorway-grid { grid-template-columns: repeat(2, 1fr); }
+        .info-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 720px) {
+        .nav-toggle { display: block; }
+        .nav-links {
+          position: absolute; top: 100%; left: 0; right: 0;
+          background: var(--white-warm); flex-direction: column; gap: 0;
+          border-bottom: 1px solid var(--line);
+          max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+        }
+        .nav-links li { border-top: 1px solid var(--line); }
+        .nav-links a { display: block; padding: 1em 1.5rem; }
+        .nav-toggle-input:checked ~ .nav-links { max-height: 400px; }
+        .nav-cta { display: none; }
+        .doorway-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      }
+    </style>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!prefersReduced && "IntersectionObserver" in window) {
+        document.documentElement.classList.add("js-reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+
+        setTimeout(() => revealEls.forEach((el) => el.classList.add("in-view")), 4000);
+      }
+
+      const navToggle = document.getElementById("nav-toggle");
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
+        });
+      });
+    </script>
+  </body>
+</html>

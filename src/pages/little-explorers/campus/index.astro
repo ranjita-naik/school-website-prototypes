@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/LittleExplorersLayout.astro";
+import { Image } from "astro:assets";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+import buildingTrees from "../../../assets/photos/shared/building-trees-01.jpg";
+
+const facilities = [
+  "Bright, well-ventilated classrooms",
+  "Science & computer laboratories",
+  "Library and reading corners",
+  "Sports field",
+  "School garden",
+  "School transport",
+  "Safe drinking water",
+  "Shaded play areas",
+];
+---
+
+<Layout
+  title="Campus & Facilities — Little Explorers — Green Valley Matriculation School"
+  description="A walk around the Green Valley Matriculation School campus."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Walk Around Campus</p>
+    <h1>Muddy hands and growing things.</h1>
+    <p class="hero-lede">The campus is its own kind of classroom.</p>
+  </section>
+
+  <section class="content-wide facilities-layout">
+    <div class="facility-image">
+      <Image src={schoolGarden} alt="A green, well-tended school garden" width={800} height={640} />
+    </div>
+    <div>
+      <p class="eyebrow">On Campus</p>
+      <h2>What's here.</h2>
+      <ul class="fact-list">
+        {facilities.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="story-image">
+    <Image src={buildingTrees} alt="A school building seen through lush green trees" width={1600} height={700} />
+  </section>
+</Layout>
+
+<style>
+  .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+  .facility-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; width: 100%; }
+
+  @media (max-width: 1024px) {
+    .facilities-layout { grid-template-columns: 1fr; }
+    .facility-image { order: -1; }
+  }
+</style>

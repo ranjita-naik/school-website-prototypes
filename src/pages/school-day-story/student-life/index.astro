@@ -1,0 +1,88 @@
+---
+import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
+import { Image } from "astro:assets";
+import playgroundHeritage from "../../../assets/photos/shared/playground-heritage-01.jpg";
+import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+
+const activities = [
+  "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
+  "Art", "Science Club", "Literary Club", "Environmental Club", "Quiz Club", "Community Service",
+];
+
+const chapters = [
+  { time: "12:30 PM", title: "Lunch & Friendship", tone: "midday", img: playgroundHeritage, alt: "Students together on the school grounds during a break", text: "Lunch is shared on the grounds — the day's loudest kind of learning: friendship." },
+  { time: "1:30 PM", title: "Sports & Play", tone: "afternoon", img: playgroundGround, alt: "A green sports field used for games and athletics", text: "The afternoon opens onto the field, and the day gets loud again." },
+  { time: "2:30 PM", title: "Clubs & Creativity", tone: "afternoon", img: schoolGarden, alt: "The school garden tended by students", text: "Clubs meet through the week — the environmental club in the garden, others with brushes, instruments, or code." },
+];
+---
+
+<Layout
+  title="Student Life — A School Day Story — Green Valley Matriculation School"
+  description="The rest of the day at Green Valley Matriculation School — lunch, sport, and clubs."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Rest of the Day</p>
+    <h1>Where the story continues.</h1>
+    <p class="hero-lede">
+      After the morning's lessons, the day opens up — lunch, the field, and a dozen ways to
+      spend an afternoon.
+    </p>
+  </section>
+
+  <section class="glimpses">
+    <ul class="glimpse-reel">
+      {chapters.map((c) => (
+        <li class={`glimpse tone-${c.tone} reveal-cinema`}>
+          <div class="glimpse-media">
+            <Image class="glimpse-img" src={c.img} alt={c.alt} width={1600} height={950} />
+            <div class="glimpse-scrim" aria-hidden="true"></div>
+          </div>
+          <div class="glimpse-copy">
+            <span class="glimpse-time">{c.time}</span>
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="content-wide">
+    <p class="eyebrow center">Clubs &amp; Activities</p>
+    <h2 style="text-align:center;">Twelve ways to spend an afternoon.</h2>
+    <ul class="activity-grid">
+      {activities.map((a) => <li>{a}</li>)}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .glimpses { max-width: 980px; margin: 0 auto 5rem; padding: 0 1.5rem; }
+  .glimpse-reel { display: grid; gap: 3.5rem; }
+  .glimpse { position: relative; border-radius: 8px; overflow: hidden; }
+  .glimpse-media { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+  .glimpse-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.09); transition: transform 2.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  :global(.js-cinema) .in-view .glimpse-img { transform: scale(1); }
+  .glimpse-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,15,18,0.82) 0%, rgba(20,15,18,0.25) 45%, transparent 75%); }
+  .tone-midday .glimpse-scrim { background: linear-gradient(to top, rgba(40,26,16,0.8) 0%, rgba(40,26,16,0.22) 45%, transparent 75%); }
+  .tone-afternoon .glimpse-scrim { background: linear-gradient(to top, rgba(46,28,10,0.8) 0%, rgba(46,28,10,0.22) 45%, transparent 75%); }
+  .glimpse-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.75rem 2rem; color: #fff; }
+  .glimpse-time { font-family: "Caveat", cursive; font-size: 1.6rem; color: var(--mango-400); display: block; }
+  .glimpse h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); margin: 0.1em 0 0.3em; color: #fff; }
+  .glimpse p { color: rgba(255,255,255,0.88); margin: 0; font-size: 0.95rem; max-width: 48ch; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glimpse-img { transform: scale(1); transition: none; }
+  }
+
+  .activity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+  .activity-grid li { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 1.1em 0.5em; text-align: center; font-weight: 600; font-size: 0.95rem; }
+
+  @media (max-width: 1024px) {
+    .activity-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .activity-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

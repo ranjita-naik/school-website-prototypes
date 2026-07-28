@@ -1,0 +1,88 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+import { Image } from "astro:assets";
+import classroomChildren from "../../../assets/photos/shared/classroom-children-tn-01.jpg";
+import scienceExperiment from "../../../assets/photos/shared/science-experiment-01.jpg";
+import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+
+const stages = [
+  { stage: "Kindergarten", ages: "Ages 3–5", detail: "Play-led foundations in language, number, and social skill." },
+  { stage: "Primary", ages: "Classes 1–5", detail: "Core subjects taught with curiosity at the centre of the lesson." },
+  { stage: "Middle School", ages: "Classes 6–8", detail: "Widening subjects, growing independence and responsibility." },
+  { stage: "Secondary", ages: "Classes 9–10", detail: "Board-aligned preparation with close academic mentorship." },
+];
+---
+
+<Layout
+  title="Academics — The Learning Garden — Green Valley Matriculation School"
+  description="Academic stages and teaching approach at Green Valley Matriculation School, Kindergarten through Class 10."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Classrooms</p>
+    <h1>What's taught, and how.</h1>
+    <p class="hero-lede">
+      One continuous journey from Kindergarten to Class 10, each stage building steadily on the last.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <div class="table-scroll">
+      <table class="simple-table">
+        <caption>Academic stages</caption>
+        <thead>
+          <tr><th>Stage</th><th>Classes</th><th>Focus</th></tr>
+        </thead>
+        <tbody>
+          {stages.map((s) => (
+            <tr><td>{s.stage}</td><td>{s.ages}</td><td>{s.detail}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">How We Teach</p>
+    <h2>Lessons that start with a question.</h2>
+    <p>
+      Classes stay small enough for teachers to know each student's pace. Core subjects —
+      language, mathematics, science, and social studies — are taught alongside art, music, and
+      physical education from the earliest years, not added on later. Science and computer
+      literacy begin with hands-on activity rather than textbook first.
+    </p>
+  </section>
+
+  <section class="doorways">
+    <div class="doorway-pair">
+      <a class="doorway-card reveal" href="/learning-garden/student-life/">
+        <div class="doorway-image">
+          <Image src={scienceExperiment} alt="A teacher and student conducting a science experiment" width={640} height={480} />
+        </div>
+        <span class="doorway-label">Hands-On Learning</span>
+        <h3>Science &amp; Discovery</h3>
+        <p>Lab-based learning from Class 3 onward, with a working science club.</p>
+        <span class="doorway-arrow" aria-hidden="true">See student life →</span>
+      </a>
+      <a class="doorway-card reveal" href="/learning-garden/campus/">
+        <div class="doorway-image">
+          <Image src={computerLab} alt="Students working at computers in the school's computer laboratory" width={640} height={480} />
+        </div>
+        <span class="doorway-label">Where It Happens</span>
+        <h3>Labs &amp; Classrooms</h3>
+        <p>Computer literacy from Kindergarten, science and computer labs from Class 3.</p>
+        <span class="doorway-arrow" aria-hidden="true">Walk the campus →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section reveal">
+    <Image src={classroomChildren} alt="Students focused at their desks in a classroom" width={900} height={620} style="border-radius: 24px; margin-bottom: 1.5rem;" />
+    <p class="eyebrow">Achievements</p>
+    <h2>Steady progress, celebrated quietly.</h2>
+    <p>
+      Green Valley students take part in district-level science, quiz, and athletics
+      competitions most years. <em>(Placeholder — specific results and dates to be confirmed
+      with the school before publishing.)</em>
+    </p>
+  </section>
+</Layout>

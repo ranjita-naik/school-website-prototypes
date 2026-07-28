@@ -1,0 +1,67 @@
+---
+import Layout from "../../../layouts/BrightFuturesLayout.astro";
+import { Image } from "astro:assets";
+import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
+import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
+import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+
+const facilities = [
+  "Bright, well-ventilated classrooms",
+  "Science & computer laboratories",
+  "Library and reading corners",
+  "Activity rooms for art and music",
+  "Sports field",
+  "School garden",
+  "School transport",
+  "Safe drinking water",
+];
+---
+
+<Layout
+  title="Campus & Facilities — Bright Futures — Green Valley Matriculation School"
+  description="Labs, classrooms, and the spaces students learn in at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Campus &amp; Facilities</p>
+    <h1>The spaces students learn in.</h1>
+    <p class="hero-lede">
+      Modern facilities built for hands-on learning — labs, classrooms, and quiet places to read.
+    </p>
+  </section>
+
+  <section class="content-wide facilities-layout">
+    <div class="facility-image">
+      <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={800} height={640} />
+    </div>
+    <div>
+      <p class="eyebrow">On Campus</p>
+      <h2>What's here.</h2>
+      <ul class="fact-list">
+        {facilities.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-wide mosaic">
+    <figure><Image src={computerLab} alt="The school's computer laboratory" width={700} height={520} /></figure>
+    <figure><Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} /></figure>
+    <figure><Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} /></figure>
+  </section>
+</Layout>
+
+<style>
+  .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
+  .facility-image :global(img) { border-radius: 22px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .mosaic img { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic figure { margin: 0; }
+
+  @media (max-width: 1024px) {
+    .facilities-layout { grid-template-columns: 1fr; }
+    .facility-image { order: -1; }
+  }
+  @media (max-width: 720px) {
+    .mosaic { grid-template-columns: 1fr; }
+  }
+</style>

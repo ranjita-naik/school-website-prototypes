@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/LittleExplorersLayout.astro";
+import { Image } from "astro:assets";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+---
+
+<Layout
+  title="About the School — Little Explorers — Green Valley Matriculation School"
+  description="How Green Valley Matriculation School began, and a message from the Principal."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Story</p>
+    <h1>How the map got here.</h1>
+    <p class="hero-lede">
+      Green Valley Matriculation School is a Kindergarten–Class 10 school in Nagercoil, Tamil Nadu.
+    </p>
+  </section>
+
+  <section class="story-image">
+    <Image src={assemblyPrayer} alt="Students standing together for morning assembly and prayer" width={1600} height={700} />
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Our Beginning</p>
+    <h2>Founded to make learning feel like discovery.</h2>
+    <p>
+      Green Valley was founded on the idea that curiosity is a skill worth building on purpose.
+      <em>(Placeholder history — founding year and milestones to be confirmed with the school.)</em>
+    </p>
+    <p>
+      <strong>Vision.</strong> Students who leave with strong foundations, confident character,
+      and a lifelong love of learning.
+      <br /><strong>Mission.</strong> To make every subject feel worth exploring.
+    </p>
+  </section>
+
+  <section class="content-section principal-section" id="principal">
+    <p class="eyebrow">Leadership</p>
+    <h2>A message from the Principal.</h2>
+    <div class="principal-card">
+      <blockquote>
+        Curiosity is contagious. Our job is mostly to stay out of its way — and to make sure
+        there's always somewhere new for it to go.
+      </blockquote>
+      <p class="principal-attribution">— Mrs. Lakshmi Narayanan, Principal <em>(placeholder name)</em></p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; width: 100%; }
+
+  .principal-card { background: #fff; border-radius: 20px; padding: 2.25rem; box-shadow: 0 12px 28px -16px rgba(42,36,56,0.25); margin-top: 1.25rem; }
+  .principal-card blockquote { font-size: 1.1rem; margin: 0 0 1em; color: var(--ink-800); }
+  .principal-attribution { font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+</style>

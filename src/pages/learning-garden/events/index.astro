@@ -1,0 +1,67 @@
+---
+import Layout from "../../../layouts/LearningGardenLayout.astro";
+
+const events = [
+  { season: "This Month", title: "Annual Sports Day", date: "14 August 2026", detail: "A full morning of track events, tug-of-war, and house championships on the main field." },
+  { season: "Coming Up", title: "Grandparents' Day", date: "3 September 2026", detail: "Grandparents are invited to spend a morning in class with their grandchildren." },
+  { season: "Coming Up", title: "Environment Week", date: "20 September 2026", detail: "A week of garden planting, clean-up drives, and environmental club projects." },
+  { season: "Look Ahead", title: "Annual Day Celebration", date: "12 December 2026", detail: "A full evening of music, dance, and drama performed by students across all classes." },
+];
+---
+
+<Layout
+  title="Events & Announcements — The Learning Garden — Green Valley Matriculation School"
+  description="Upcoming events and announcements at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Events &amp; Announcements</p>
+    <h1>Seasonal moments on the school calendar.</h1>
+    <p class="hero-lede">
+      A running list of what's ahead — sports days, celebrations, and community gatherings.
+    </p>
+  </section>
+
+  <section class="content-wide">
+    <ul class="event-list">
+      {events.map((event) => (
+        <li class="event-card">
+          <span class="event-season">{event.season}</span>
+          <h3>{event.title}</h3>
+          <time>{event.date}</time>
+          <p>{event.detail}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="fine-print">Dates and events shown are illustrative placeholders, not a real school calendar.</p>
+  </section>
+</Layout>
+
+<style>
+  .event-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .event-card {
+    background: var(--leaf-100);
+    border-radius: 20px;
+    padding: 1.75rem;
+    border: 1px solid var(--leaf-200);
+  }
+  .event-season {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--leaf-600);
+  }
+  .event-card h3 { font-size: 1.15rem; margin: 0.4em 0 0.15em; }
+  .event-card time { font-size: 0.85rem; color: var(--ink-soft); display: block; margin-bottom: 0.5em; }
+  .event-card p { font-size: 0.92rem; margin: 0; color: var(--ink-soft); }
+  .fine-print { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin-top: 1.5rem; }
+
+  @media (max-width: 720px) {
+    .event-list { grid-template-columns: 1fr; }
+  }
+</style>

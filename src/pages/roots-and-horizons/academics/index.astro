@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
+
+const programme = [
+  { stage: "Kindergarten", detail: "Play-based foundations in language, number, and social skill." },
+  { stage: "Primary · Classes 1–5", detail: "Core subjects taught with structured daily practice." },
+  { stage: "Middle School · Classes 6–8", detail: "Widening subjects, growing independence and responsibility." },
+  { stage: "Secondary · Classes 9–10", detail: "Board-aligned preparation with close academic mentorship." },
+];
+---
+
+<Layout
+  title="Academics — Roots and Horizons — Green Valley Matriculation School"
+  description="Academic programme at Green Valley Matriculation School, Kindergarten through Class 10."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Classrooms</p>
+    <h1>One continuous journey, four stages.</h1>
+    <p class="hero-lede">
+      What's taught, and how, from Kindergarten through Class 10.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <dl class="programme-list">
+      {programme.map((p) => (
+        <div class="programme-row">
+          <dt>{p.stage}</dt>
+          <dd>{p.detail}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="content-section">
+    <p class="eyebrow">Our Approach</p>
+    <h2>Rigor, held with patience.</h2>
+    <p>
+      Academic standards at Green Valley are high, but held with patience rather than pressure.
+      Teachers are asked to know each student's pace, not just their marks.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .programme-list { margin-top: 1rem; border-top: 1px solid var(--line); }
+  .programme-row { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+  .programme-row dt { font-family: "Playfair Display", serif; font-weight: 700; }
+  .programme-row dd { color: var(--ink-soft); margin: 0; }
+
+  @media (max-width: 720px) {
+    .programme-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+</style>

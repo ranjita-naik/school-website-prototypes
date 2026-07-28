@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
+import { Image } from "astro:assets";
+import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
+import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+
+const facilities = [
+  "Bright, well-ventilated classrooms",
+  "Science & computer laboratories",
+  "Library and reading corners",
+  "Sports field",
+  "School garden",
+  "School transport",
+  "Safe drinking water",
+  "Shaded walkways",
+];
+---
+
+<Layout
+  title="Campus & Facilities — Roots and Horizons — Green Valley Matriculation School"
+  description="Classrooms, laboratories, library, and grounds at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">The Walk Around Campus</p>
+    <h1>Classrooms, laboratories, library, and grounds.</h1>
+    <p class="hero-lede">A campus built with the same restraint as the rest of the school.</p>
+  </section>
+
+  <section class="content-section">
+    <ul class="fact-list">
+      {facilities.map((f) => <li>{f}</li>)}
+    </ul>
+  </section>
+
+  <section class="content-wide mosaic">
+    <figure><Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} /></figure>
+    <figure><Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} /></figure>
+    <figure><Image src={schoolGarden} alt="A green, well-tended school garden" width={700} height={520} /></figure>
+  </section>
+</Layout>
+
+<style>
+  .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); }
+  .mosaic :global(img) { width: 100%; height: 260px; object-fit: cover; }
+  .mosaic figure { margin: 0; }
+
+  @media (max-width: 720px) {
+    .mosaic { grid-template-columns: 1fr; }
+  }
+</style>

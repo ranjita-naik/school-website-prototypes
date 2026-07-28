@@ -1,0 +1,151 @@
+---
+import Layout from "../../layouts/LearningGardenLayout.astro";
+import gardenPathway from "../../assets/photos/shared/garden-pathway-01.jpg";
+import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
+import classroomChildren from "../../assets/photos/shared/classroom-children-tn-01.jpg";
+import schoolGarden from "../../assets/photos/shared/school-garden-01.jpg";
+import computerLab from "../../assets/photos/shared/computer-lab-01.jpg";
+import playgroundGround from "../../assets/photos/shared/playground-ground-01.jpg";
+import forestPathway from "../../assets/photos/shared/forest-pathway-01.jpg";
+import { Image } from "astro:assets";
+
+const doorways = [
+  { label: "The Story", title: "About the School", desc: "How Green Valley began, and the values it still grows from.", img: assemblyPrayer, alt: "Students standing together for morning assembly", href: "/learning-garden/about/" },
+  { label: "The Classrooms", title: "Academics", desc: "What's taught, and how, from Kindergarten to Class 10.", img: classroomChildren, alt: "Students at their desks in a classroom", href: "/learning-garden/academics/" },
+  { label: "The Playground", title: "Student Life", desc: "Sport, clubs, friendship, and time to just play.", img: playgroundGround, alt: "A green sports field used for play and games", href: "/learning-garden/student-life/" },
+  { label: "The Walk Around Campus", title: "Campus & Facilities", desc: "Gardens, labs, library, and shaded walking paths.", img: schoolGarden, alt: "A green, well-tended school garden", href: "/learning-garden/campus/" },
+  { label: "The Reception Office", title: "Admissions", desc: "How to enquire, visit, and join us.", img: computerLab, alt: "An interior room at the school", href: "/learning-garden/admissions/" },
+];
+---
+
+<Layout
+  title="Green Valley Matriculation School — The Learning Garden"
+  description="Green Valley Matriculation School, Nagercoil — a nature-rich, values-led school for Kindergarten through Class 10. Prototype concept: The Learning Garden."
+>
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Nagercoil, Tamil Nadu</p>
+      <h1>Growing curious minds with knowledge, values, and care.</h1>
+      <p class="hero-lede">
+        Kindergarten–Class 10, where children learn the way gardens grow: at their own pace,
+        with room to reach the light.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#doorways">Step Inside</a>
+        <a class="btn btn-ghost" href="/learning-garden/admissions/">Learn About Admissions</a>
+      </div>
+    </div>
+    <div class="hero-frame">
+      <Image src={gardenPathway} alt="A lush, tree-lined garden path with tropical plants on a school-like campus" width={1400} height={1050} priority />
+    </div>
+  </section>
+
+  <section class="welcome">
+    <p class="eyebrow">Our Learning Garden</p>
+    <h2>We help students build strong foundations, confident character, and a lifelong love of learning.</h2>
+    <p>
+      A garden needs sunlight, soil, and steady care. A child needs curiosity, kindness,
+      and a community that pays attention.
+    </p>
+  </section>
+
+  <section class="doorways" id="doorways">
+    <svg class="vine" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+      <path class="vine-path" d="M10 45 C 250 45, 250 10, 500 10 S 750 45, 990 45" />
+    </svg>
+    <p class="eyebrow doorway-eyebrow">Around the Garden</p>
+
+    <a class="doorway-large reveal" href={doorways[0].href}>
+      <div class="doorway-large-image">
+        <Image src={doorways[0].img} alt={doorways[0].alt} width={1000} height={750} />
+      </div>
+      <div class="doorway-large-copy">
+        <span class="doorway-label">{doorways[0].label}</span>
+        <h3>{doorways[0].title}</h3>
+        <p>{doorways[0].desc}</p>
+        <span class="doorway-arrow" aria-hidden="true">Enter →</span>
+      </div>
+    </a>
+
+    <div class="doorway-pair">
+      {[doorways[1], doorways[2]].map((d) => (
+        <a class="doorway-card reveal" href={d.href}>
+          <div class="doorway-image">
+            <Image src={d.img} alt={d.alt} width={640} height={480} />
+          </div>
+          <span class="doorway-label">{d.label}</span>
+          <h3>{d.title}</h3>
+          <p>{d.desc}</p>
+          <span class="doorway-arrow" aria-hidden="true">Enter →</span>
+        </a>
+      ))}
+    </div>
+
+    <a class="immersive-band reveal" href={doorways[3].href}>
+      <Image src={doorways[3].img} alt={doorways[3].alt} width={1800} height={800} />
+      <div class="immersive-scrim" aria-hidden="true"></div>
+      <div class="immersive-caption">
+        <span class="doorway-label">{doorways[3].label}</span>
+        <h3>{doorways[3].title}</h3>
+        <span class="doorway-arrow" aria-hidden="true">Enter →</span>
+      </div>
+    </a>
+
+    <a class="doorway-single reveal" href={doorways[4].href}>
+      <div class="doorway-image">
+        <Image src={doorways[4].img} alt={doorways[4].alt} width={640} height={480} />
+      </div>
+      <div class="doorway-single-copy">
+        <span class="doorway-label">{doorways[4].label}</span>
+        <h3>{doorways[4].title}</h3>
+        <p>{doorways[4].desc}</p>
+        <span class="doorway-arrow" aria-hidden="true">Enter →</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="cta-band reveal">
+    <Image class="cta-bg" src={forestPathway} alt="" role="presentation" width={1800} height={700} />
+    <div class="cta-band-content">
+      <h2>Come see the garden for yourself.</h2>
+      <p>Campus visits are welcome on working days, 9:00 AM – 1:00 PM.</p>
+      <a class="btn btn-primary" href="/learning-garden/contact/">Contact the School</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero h1 { font-size: clamp(2.1rem, 4vw, 3rem); }
+  .hero-lede { font-size: 1.1rem; max-width: 44ch; color: var(--ink-soft); }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .hero-frame {
+    border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(30, 58, 41, 0.35);
+    border: 6px solid var(--white);
+  }
+  .hero-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+  .welcome {
+    max-width: 700px;
+    margin: 4.5rem auto 0;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .welcome h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+  .welcome p { color: var(--ink-soft); }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-frame { order: -1; }
+  }
+</style>

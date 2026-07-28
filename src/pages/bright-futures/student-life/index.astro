@@ -1,0 +1,89 @@
+---
+import Layout from "../../../layouts/BrightFuturesLayout.astro";
+import { Image } from "astro:assets";
+import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
+
+const activities = [
+  "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
+  "Art", "Science Club", "Literary Club", "Environmental Club", "Quiz Club", "Community Service",
+];
+
+const achievements = [
+  { tag: "Science", title: "District Science Fair — 2nd Place" },
+  { tag: "Quiz", title: "Inter-School Quiz Champions" },
+  { tag: "Athletics", title: "5 Medals at District Athletics Meet" },
+];
+---
+
+<Layout
+  title="Student Life — Bright Futures — Green Valley Matriculation School"
+  description="Clubs, sport, and everyday life for students at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Student Life</p>
+    <h1>The field, the clubs, and everything after the bell.</h1>
+    <p class="hero-lede">
+      Twelve activities, a full sports field, and a morning assembly that starts the day together.
+    </p>
+  </section>
+
+  <section class="content-wide mosaic">
+    <figure class="tall">
+      <Image src={playgroundGround} alt="A green sports field used for games and athletics" width={800} height={1000} />
+    </figure>
+    <figure>
+      <Image src={assemblyPrayer} alt="Students in morning assembly outside the school building" width={800} height={480} />
+    </figure>
+  </section>
+
+  <section class="content-wide">
+    <p class="eyebrow center">Clubs &amp; Activities</p>
+    <h2 style="text-align:center;">Twelve ways to spend an afternoon.</h2>
+    <ul class="activity-grid">
+      {activities.map((a) => <li>{a}</li>)}
+    </ul>
+  </section>
+
+  <section class="content-wide">
+    <p class="eyebrow">Recent Achievements</p>
+    <h2>Confidence, backed by results.</h2>
+    <ul class="achievement-list">
+      {achievements.map((a) => (
+        <li class="achievement-card">
+          <span class="tag">{a.tag}</span>
+          <h3>{a.title}</h3>
+        </li>
+      ))}
+    </ul>
+    <p class="fine-print">Achievements shown are illustrative placeholders, not verified school records.</p>
+  </section>
+</Layout>
+
+<style>
+  .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
+  .mosaic img { border-radius: 20px; width: 100%; height: 100%; object-fit: cover; }
+  .mosaic figure { margin: 0; }
+  .mosaic .tall img { aspect-ratio: 4/5; }
+  .mosaic figure:not(.tall) img { aspect-ratio: 8/5; }
+
+  .activity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+  .activity-grid li { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.1em 0.5em; text-align: center; font-weight: 600; font-size: 0.95rem; }
+
+  .achievement-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .achievement-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; }
+  .tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cobalt-700); background: #eef1fd; padding: 0.25em 0.7em; border-radius: 999px; margin-bottom: 0.75em; }
+  .achievement-card h3 { font-size: 1.02rem; margin: 0; }
+  .fine-print { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin-top: 1.5rem; }
+
+  @media (max-width: 1024px) {
+    .mosaic { grid-template-columns: 1fr; }
+    .mosaic .tall img { aspect-ratio: 8/5; }
+    .activity-grid { grid-template-columns: repeat(3, 1fr); }
+    .achievement-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .activity-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

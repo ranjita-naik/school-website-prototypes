@@ -1,0 +1,100 @@
+---
+const prototypes = [
+  {
+    href: "/learning-garden/",
+    name: "1 — The Learning Garden",
+    promise: "A nature-rich, warm, and optimistic school website inspired by growth, greenery, and the landscape around Nagercoil.",
+    tags: ["Organic shapes", "Leaf green & cream", "Fraunces + Karla"],
+  },
+  {
+    href: "/bright-futures/",
+    name: "2 — Bright Futures",
+    promise: "A colorful, energetic, modern school website centered on curiosity, confidence, and future-ready learning.",
+    tags: ["Modular grid", "Cobalt & coral", "Space Grotesk + Inter"],
+  },
+  {
+    href: "/school-day-story/",
+    name: "3 — A School Day Story",
+    promise: "An immersive, story-led website that walks visitors through a child's day, from morning prayer to home.",
+    tags: ["Cinematic hero", "Terracotta & plum", "Lora + Public Sans"],
+  },
+  {
+    href: "/little-explorers/",
+    name: "4 — Little Explorers",
+    promise: "A playful, imaginative website inspired by curiosity, exploration, and the excitement of discovering the world.",
+    tags: ["Illustrated map", "Turquoise & berry", "Baloo 2 + Nunito"],
+  },
+  {
+    href: "/roots-and-horizons/",
+    name: "5 — Roots and Horizons",
+    promise: "A refined website balancing tradition, discipline, values, and academic strength with modern opportunity.",
+    tags: ["Restrained grid", "Indigo & marigold", "Playfair Display + Work Sans"],
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Green Valley Matriculation School — Five Design Prototypes</title>
+    <meta name="description" content="Five distinct website design prototypes for Green Valley Matriculation School, Nagercoil." />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <p class="eyebrow">Design Prototype Review</p>
+        <h1>Five directions for Green Valley Matriculation School</h1>
+        <p class="lede">
+          Green Valley Matriculation School (Nagercoil, Tamil Nadu) is a fictional placeholder
+          identity used consistently across all five concepts below, so the design directions can
+          be compared fairly. All content — names, statistics, dates, testimonials — is
+          illustrative placeholder content.
+        </p>
+      </header>
+      <ul class="grid">
+        {prototypes.map((p) => (
+          <li class="card">
+            <a href={p.href}>
+              <h2>{p.name}</h2>
+              <p>{p.promise}</p>
+              <ul class="tags">
+                {p.tags.map((t) => <li>{t}</li>)}
+              </ul>
+              <span class="visit">View homepage →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
+
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: #f4f2ef;
+        color: #1c1c1c;
+        line-height: 1.6;
+      }
+      main { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+      .intro { max-width: 720px; margin-bottom: 3rem; }
+      .eyebrow { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; font-weight: 700; color: #8a6d3b; margin: 0 0 0.6em; }
+      h1 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 0.6em; }
+      .lede { color: #4a4a4a; }
+      .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+      .card { background: #fff; border: 1px solid #e2ddd3; border-radius: 12px; transition: box-shadow 0.2s ease, transform 0.2s ease; }
+      .card:hover { box-shadow: 0 16px 32px -18px rgba(0,0,0,0.25); transform: translateY(-3px); }
+      .card a { display: block; padding: 1.75rem; text-decoration: none; color: inherit; height: 100%; box-sizing: border-box; }
+      .card h2 { font-size: 1.15rem; margin: 0 0 0.5em; }
+      .card p { font-size: 0.92rem; color: #4a4a4a; margin: 0 0 1em; }
+      .tags { list-style: none; margin: 0 0 1.25em; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4em; }
+      .tags li { font-size: 0.74rem; background: #f0ede6; padding: 0.3em 0.7em; border-radius: 999px; color: #5a5245; }
+      .visit { font-size: 0.85rem; font-weight: 700; color: #8a6d3b; }
+      :focus-visible { outline: 3px solid #8a6d3b; outline-offset: 2px; }
+    </style>
+  </body>
+</html>

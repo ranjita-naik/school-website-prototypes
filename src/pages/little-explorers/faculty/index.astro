@@ -1,0 +1,55 @@
+---
+import Layout from "../../../layouts/LittleExplorersLayout.astro";
+import { Image } from "astro:assets";
+import scienceExperiment from "../../../assets/photos/shared/science-experiment-01.jpg";
+
+const leadership = [
+  { name: "Mrs. Lakshmi Narayanan", role: "Principal" },
+  { name: "Mr. Anand Kumar", role: "Vice Principal" },
+  { name: "Mrs. Priya Selvam", role: "Head of Academics" },
+  { name: "Mr. Joseph Ravi", role: "Head of Student Affairs" },
+];
+---
+
+<Layout
+  title="Faculty & Leadership — Little Explorers — Green Valley Matriculation School"
+  description="Faculty and leadership at Green Valley Matriculation School."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Faculty &amp; Leadership</p>
+    <h1>Grown-ups who like a good question.</h1>
+    <p class="hero-lede">All names below are placeholders, standing in for the school's real teaching staff.</p>
+  </section>
+
+  <section class="story-image">
+    <Image src={scienceExperiment} alt="A teacher and student conducting a science experiment" width={1600} height={700} />
+  </section>
+
+  <section class="content-wide">
+    <ul class="leader-grid">
+      {leadership.map((l) => (
+        <li class="leader-card">
+          <h3>{l.name}</h3>
+          <p>{l.role} <em>(placeholder name)</em></p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+  .story-image :global(img) { border-radius: 28px; height: 300px; object-fit: cover; width: 100%; }
+
+  .leader-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 1rem; }
+  .leader-card { background: #fff; border-radius: 20px; padding: 1.5rem; text-align: center; box-shadow: 0 10px 26px -16px rgba(42,36,56,0.25); }
+  .leader-card h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+  .leader-card p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+
+  @media (max-width: 1024px) {
+    .leader-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .leader-grid { grid-template-columns: 1fr; }
+  }
+</style>
