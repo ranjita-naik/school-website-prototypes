@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
 import classroomChildren from "../../../assets/photos/shared/classroom-children-tn-01.jpg";
@@ -54,7 +55,7 @@ const stages = [
 
   <section class="doorways">
     <div class="doorway-pair">
-      <a class="doorway-card reveal" href="/learning-garden/student-life/">
+      <a class="doorway-card reveal" href={base + "learning-garden/student-life/"}>
         <div class="doorway-image">
           <Image src={scienceExperiment} alt="A teacher and student conducting a science experiment" width={640} height={480} />
         </div>
@@ -63,7 +64,7 @@ const stages = [
         <p>Lab-based learning from Class 3 onward, with a working science club.</p>
         <span class="doorway-arrow" aria-hidden="true">See student life →</span>
       </a>
-      <a class="doorway-card reveal" href="/learning-garden/campus/">
+      <a class="doorway-card reveal" href={base + "learning-garden/campus/"}>
         <div class="doorway-image">
           <Image src={computerLab} alt="Students working at computers in the school's computer laboratory" width={640} height={480} />
         </div>

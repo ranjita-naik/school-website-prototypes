@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 interface Props {
   title: string;
   description: string;
@@ -25,19 +26,19 @@ const { title, description } = Astro.props;
 
     <header class="site-header">
       <nav class="nav-pill" aria-label="Primary">
-        <a class="brand" href="/little-explorers/">Green Valley</a>
+        <a class="brand" href={base + "little-explorers/"}>Green Valley</a>
         <ul class="nav-links">
-          <li><a href="/little-explorers/#map">Explore</a></li>
-          <li><a href="/little-explorers/admissions/">Admissions</a></li>
-          <li><a href="/little-explorers/contact/">Contact</a></li>
+          <li><a href={base + "little-explorers/#map"}>Explore</a></li>
+          <li><a href={base + "little-explorers/admissions/"}>Admissions</a></li>
+          <li><a href={base + "little-explorers/contact/"}>Contact</a></li>
         </ul>
         <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
         <label for="nav-toggle" class="nav-toggle" aria-label="Open menu"><span></span></label>
       </nav>
       <ul class="nav-links-mobile">
-        <li><a href="/little-explorers/#map">Explore</a></li>
-        <li><a href="/little-explorers/admissions/">Admissions</a></li>
-        <li><a href="/little-explorers/contact/">Contact</a></li>
+        <li><a href={base + "little-explorers/#map"}>Explore</a></li>
+        <li><a href={base + "little-explorers/admissions/"}>Admissions</a></li>
+        <li><a href={base + "little-explorers/contact/"}>Contact</a></li>
       </ul>
     </header>
 
@@ -55,20 +56,20 @@ const { title, description } = Astro.props;
         <nav class="footer-col" aria-label="Explore">
           <h3>Explore</h3>
           <ul>
-            <li><a href="/little-explorers/about/">About the School</a></li>
-            <li><a href="/little-explorers/academics/">Academics</a></li>
-            <li><a href="/little-explorers/admissions/">Admissions</a></li>
-            <li><a href="/little-explorers/campus/">Campus &amp; Facilities</a></li>
-            <li><a href="/little-explorers/gallery/">Gallery</a></li>
+            <li><a href={base + "little-explorers/about/"}>About the School</a></li>
+            <li><a href={base + "little-explorers/academics/"}>Academics</a></li>
+            <li><a href={base + "little-explorers/admissions/"}>Admissions</a></li>
+            <li><a href={base + "little-explorers/campus/"}>Campus &amp; Facilities</a></li>
+            <li><a href={base + "little-explorers/gallery/"}>Gallery</a></li>
           </ul>
         </nav>
         <nav class="footer-col" aria-label="For Parents">
           <h3>For Parents</h3>
           <ul>
-            <li><a href="/little-explorers/parents/">Parent Resources</a></li>
-            <li><a href="/little-explorers/events/">Events &amp; Announcements</a></li>
-            <li><a href="/little-explorers/faculty/">Faculty &amp; Leadership</a></li>
-            <li><a href="/little-explorers/policies/">Policies &amp; Disclosures</a></li>
+            <li><a href={base + "little-explorers/parents/"}>Parent Resources</a></li>
+            <li><a href={base + "little-explorers/events/"}>Events &amp; Announcements</a></li>
+            <li><a href={base + "little-explorers/faculty/"}>Faculty &amp; Leadership</a></li>
+            <li><a href={base + "little-explorers/policies/"}>Policies &amp; Disclosures</a></li>
           </ul>
         </nav>
         <div class="footer-col">

@@ -1,31 +1,32 @@
 ---
+const base = import.meta.env.BASE_URL;
 const prototypes = [
   {
-    href: "/learning-garden/",
+    href: base + "learning-garden/",
     name: "1 — The Learning Garden",
     promise: "A nature-rich, warm, and optimistic school website inspired by growth, greenery, and the landscape around Nagercoil.",
     tags: ["Organic shapes", "Leaf green & cream", "Fraunces + Karla"],
   },
   {
-    href: "/bright-futures/",
+    href: base + "bright-futures/",
     name: "2 — Bright Futures",
     promise: "A colorful, energetic, modern school website centered on curiosity, confidence, and future-ready learning.",
     tags: ["Modular grid", "Cobalt & coral", "Space Grotesk + Inter"],
   },
   {
-    href: "/school-day-story/",
+    href: base + "school-day-story/",
     name: "3 — A School Day Story",
     promise: "An immersive, story-led website that walks visitors through a child's day, from morning prayer to home.",
     tags: ["Cinematic hero", "Terracotta & plum", "Lora + Public Sans"],
   },
   {
-    href: "/little-explorers/",
+    href: base + "little-explorers/",
     name: "4 — Little Explorers",
     promise: "A playful, imaginative website inspired by curiosity, exploration, and the excitement of discovering the world.",
     tags: ["Illustrated map", "Turquoise & berry", "Baloo 2 + Nunito"],
   },
   {
-    href: "/roots-and-horizons/",
+    href: base + "roots-and-horizons/",
     name: "5 — Roots and Horizons",
     promise: "A refined website balancing tradition, discipline, values, and academic strength with modern opportunity.",
     tags: ["Restrained grid", "Indigo & marigold", "Playfair Display + Work Sans"],
@@ -39,7 +40,7 @@ const prototypes = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Green Valley Matriculation School — Five Design Prototypes</title>
     <meta name="description" content="Five distinct website design prototypes for Green Valley Matriculation School, Nagercoil." />
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" href={base + "favicon.svg"} />
   </head>
   <body>
     <main>

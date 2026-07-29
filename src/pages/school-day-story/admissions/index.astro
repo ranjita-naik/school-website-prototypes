@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
 
 const steps = [
@@ -64,7 +65,7 @@ const faqs = [
   <section class="cta-band">
     <h2>Ready to talk it through?</h2>
     <p>Call or email the school office before you decide to visit.</p>
-    <a class="btn btn-primary" href="/school-day-story/contact/">Contact the School</a>
+    <a class="btn btn-primary" href={base + "school-day-story/contact/"}>Contact the School</a>
   </section>
 </Layout>
 

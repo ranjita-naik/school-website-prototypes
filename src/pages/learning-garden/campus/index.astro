@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
 import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
@@ -32,7 +33,7 @@ const facilities = [
     </p>
   </section>
 
-  <a class="immersive-band reveal" href="/learning-garden/admissions/">
+  <a class="immersive-band reveal" href={base + "learning-garden/admissions/"}>
     <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1800} height={800} />
     <div class="immersive-scrim" aria-hidden="true"></div>
     <div class="immersive-caption">
