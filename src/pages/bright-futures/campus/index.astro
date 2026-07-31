@@ -1,10 +1,10 @@
 ---
 import Layout from "../../../layouts/BrightFuturesLayout.astro";
 import { Image } from "astro:assets";
-import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
-import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
-import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
-import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import computerLab from "../../../assets/photos/shared/computer-lab-modern-01.jpg";
+import classroomBright from "../../../assets/photos/shared/classroom-bright-01.jpg";
+import libraryStudy from "../../../assets/photos/shared/library-study-01.jpg";
+import campusBuilding from "../../../assets/photos/shared/campus-building-modern-01.jpg";
 
 const facilities = [
   "Bright, well-ventilated classrooms",
@@ -32,7 +32,7 @@ const facilities = [
 
   <section class="content-wide facilities-layout">
     <div class="facility-image">
-      <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={800} height={640} />
+      <Image src={campusBuilding} alt="The school building seen across its front lawn" width={800} height={640} />
     </div>
     <div>
       <p class="eyebrow">On Campus</p>
@@ -44,17 +44,17 @@ const facilities = [
   </section>
 
   <section class="content-wide mosaic">
-    <figure><Image src={computerLab} alt="The school's computer laboratory" width={700} height={520} /></figure>
-    <figure><Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} /></figure>
-    <figure><Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} /></figure>
+    <figure><Image src={computerLab} alt="Rows of workstations in the school computer laboratory" width={700} height={520} /></figure>
+    <figure><Image src={classroomBright} alt="A bright classroom with colourful desks ready for the day" width={700} height={520} /></figure>
+    <figure><Image src={libraryStudy} alt="Students studying at long desks in the school library" width={700} height={520} /></figure>
   </section>
 </Layout>
 
 <style>
   .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
-  .facility-image :global(img) { border-radius: 22px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .facility-image :global(img) { border-radius: 22px; width: 100%; aspect-ratio: 5/4; object-fit: cover; height: auto; }
   .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .mosaic img { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic img { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
   .mosaic figure { margin: 0; }
 
   @media (max-width: 1024px) {

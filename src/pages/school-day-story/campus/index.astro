@@ -2,9 +2,9 @@
 import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
 import { Image } from "astro:assets";
 import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import campusPath from "../../../assets/photos/shared/campus-path-trees-01.jpg";
 import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
-import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
-import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
+import classroomBright from "../../../assets/photos/shared/classroom-bright-01.jpg";
 
 const facilities = [
   "Bright, well-ventilated classrooms",
@@ -31,7 +31,7 @@ const facilities = [
   </section>
 
   <section class="story-image">
-    <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1800} height={800} />
+    <Image src={campusEntrance} alt="The school's entrance gate framed by trees" width={1800} height={800} />
   </section>
 
   <section class="content-wide facilities-layout">
@@ -43,24 +43,24 @@ const facilities = [
       </ul>
     </div>
     <div class="facility-image">
-      <Image src={schoolGarden} alt="A green, well-tended school garden" width={800} height={640} />
+      <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={800} height={640} />
     </div>
   </section>
 
   <section class="content-wide mosaic">
-    <figure><Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} /></figure>
-    <figure><Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} /></figure>
+    <figure><Image src={campusPath} alt="A tree-lined path leading through the school campus" width={700} height={520} /></figure>
+    <figure><Image src={classroomBright} alt="A bright classroom with colourful desks ready for the day" width={700} height={520} /></figure>
   </section>
 </Layout>
 
 <style>
   .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { border-radius: 8px; height: 340px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { border-radius: 8px; height: 340px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
-  .facility-image :global(img) { border-radius: 8px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .facility-image :global(img) { border-radius: 8px; width: 100%; aspect-ratio: 5/4; object-fit: cover; height: auto; }
   .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .mosaic :global(img) { border-radius: 8px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic :global(img) { border-radius: 8px; width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
   .mosaic figure { margin: 0; }
 
   @media (max-width: 1024px) {

@@ -148,7 +148,7 @@ const { title, description } = Astro.props;
       /* Header */
       .site-header { position: sticky; top: 0; z-index: 50; background: rgba(250,251,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
       .nav { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; padding: 0.85rem 1.5rem; }
-      .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink-900); margin-right: auto; font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: 0.02em; font-size: 1rem; }
+      .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink-900); margin-right: auto; font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: 0.02em; font-size: 1rem; white-space: nowrap; flex-shrink: 0; }
       .brand-mark { width: 30px; height: 30px; fill: var(--coral-500); }
       .nav-links { display: flex; gap: 1.75rem; font-weight: 600; font-size: 0.92rem; }
       .nav-links a { text-decoration: none; position: relative; padding: 0.3em 0; }
@@ -174,13 +174,22 @@ const { title, description } = Astro.props;
       .doorway-card:hover { transform: translateY(-5px); box-shadow: 0 16px 30px -18px rgba(16,24,43,0.2); }
       .doorway-card a { display: block; text-decoration: none; color: inherit; }
       .doorway-image { aspect-ratio: 4/3; }
-      .doorway-image img { width: 100%; height: 100%; object-fit: cover; }
+      /* Bias the crop below centre: several of these photographs are wide
+         compositions where the sky would otherwise fill the 4:3 card. */
+      .doorway-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
       .doorway-dot { display: block; width: 10px; height: 10px; border-radius: 50%; margin: 1.5rem 1.5rem 0.6em; }
       .doorway-card h3 { font-size: 1.1rem; margin: 0 1.5rem 0.35em; }
       .doorway-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 1.5rem 1em; }
       .doorway-arrow { display: block; margin: 0 1.5rem 1.5rem; font-weight: 700; color: var(--cobalt-700); font-size: 0.88rem; }
-      .doorway-simple { display: flex; align-items: center; background: #eef1fd; }
-      .doorway-simple h3 { margin-top: 1.75rem; }
+      /* Deliberate text-only tile closing the grid — tinted so it reads as an
+         accent panel rather than a card whose image failed to load. */
+      .doorway-simple {
+        display: flex; align-items: center;
+        background: linear-gradient(150deg, #eef1fd 0%, #e2e8fb 55%, #dfe9f7 100%);
+        border-color: #cfd9f4;
+      }
+      .doorway-simple h3 { margin-top: 1.75rem; font-size: 1.3rem; }
+      .doorway-simple p { font-size: 0.95rem; }
       .accent-coral .doorway-dot { background: var(--coral-500); }
       .accent-aqua .doorway-dot { background: var(--aqua-300); }
       .accent-sun .doorway-dot { background: var(--sun-400); }
@@ -240,7 +249,9 @@ const { title, description } = Astro.props;
         .footer-grid { grid-template-columns: 1fr 1fr; }
       }
 
-      @media (max-width: 720px) {
+      /* The link row plus the CTA button stop fitting on one line at tablet
+         width, so collapse to the toggle before anything wraps. */
+      @media (max-width: 900px) {
         .nav-toggle { display: block; }
         .nav-links {
           position: absolute; top: 100%; left: 0; right: 0;
@@ -252,6 +263,9 @@ const { title, description } = Astro.props;
         .nav-links a { display: block; padding: 1em 1.5rem; }
         .nav-toggle-input:checked ~ .nav-links { max-height: 400px; }
         .nav-cta { display: none; }
+      }
+
+      @media (max-width: 720px) {
         .doorway-grid { grid-template-columns: 1fr; }
         .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       }

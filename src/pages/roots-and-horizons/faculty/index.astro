@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
 import { Image } from "astro:assets";
-import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+import studentsProject from "../../../assets/photos/shared/students-project-work-01.jpg";
 
 const leadership = [
   { name: "Mrs. Lakshmi Narayanan", role: "Principal" },
@@ -22,7 +22,7 @@ const leadership = [
   </section>
 
   <section class="story-image">
-    <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1600} height={700} />
+    <Image src={studentsProject} alt="Students working together on a project at their desks" width={1600} height={700} />
   </section>
 
   <section class="content-section">
@@ -39,7 +39,7 @@ const leadership = [
 
 <style>
   .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { height: 300px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { height: 300px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .programme-list { margin-top: 1rem; border-top: 1px solid var(--line); }
   .programme-row { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }

@@ -1,26 +1,20 @@
 ---
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
-import classroomChildren from "../../../assets/photos/shared/classroom-children-tn-01.jpg";
-import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
-import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
-import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
-import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import assemblyMorning from "../../../assets/photos/shared/assembly-morning-01.jpg";
 import gardenPathway from "../../../assets/photos/shared/garden-pathway-01.jpg";
+import studentsSecondary from "../../../assets/photos/shared/students-secondary-01.jpg";
+import studentsPlay from "../../../assets/photos/shared/students-play-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
 import forestPathway from "../../../assets/photos/shared/forest-pathway-01.jpg";
 
 const photos = [
-  { img: assemblyPrayer, alt: "Students standing together for morning assembly" },
-  { img: gardenPathway, alt: "A lush, tree-lined garden path on campus" },
-  { img: classroomChildren, alt: "Students focused at their desks in a classroom" },
-  { img: playgroundGround, alt: "A green sports field used for play and games" },
-  { img: schoolGarden, alt: "A green, well-tended school garden" },
-  { img: computerLab, alt: "Students working at computers in the computer laboratory" },
-  { img: campusEntrance, alt: "Tree-lined school entrance gate" },
-  { img: classroomChildrenTn2, alt: "Students reading and writing at their desks" },
-  { img: forestPathway, alt: "A quiet garden path on campus" },
+  { img: gardenPathway, alt: "A palm-lined garden path across the campus" },
+  { img: assemblyMorning, alt: "Students gathered in rows for morning assembly on the school ground" },
+  { img: forestPathway, alt: "A shaded path through dense greenery beside the campus" },
+  { img: studentsSecondary, alt: "Secondary-school students together outside the classroom block" },
+  { img: studentsPlay, alt: "Students playing together outdoors during break" },
+  { img: schoolGarden, alt: "The school garden path lined with flowering shrubs" },
 ];
 ---
 
@@ -58,12 +52,12 @@ const photos = [
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; height: auto;
   }
   .gallery-grid li:hover :global(img) { transform: scale(1.03); }
 
   @media (max-width: 1024px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 720px) {
     .gallery-grid { grid-template-columns: 1fr; }

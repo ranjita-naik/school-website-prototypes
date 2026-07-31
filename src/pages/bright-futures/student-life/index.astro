@@ -1,9 +1,8 @@
 ---
 import Layout from "../../../layouts/BrightFuturesLayout.astro";
 import { Image } from "astro:assets";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
-import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
+import assemblyMorning from "../../../assets/photos/shared/assembly-morning-01.jpg";
+import studentsDining from "../../../assets/photos/shared/students-dining-01.jpg";
 
 const activities = [
   "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
@@ -31,10 +30,10 @@ const achievements = [
 
   <section class="content-wide mosaic">
     <figure class="tall">
-      <Image src={playgroundGround} alt="A green sports field used for games and athletics" width={800} height={1000} />
+      <Image src={studentsDining} alt="Students sharing a meal during the lunch break" width={800} height={1000} />
     </figure>
     <figure>
-      <Image src={assemblyPrayer} alt="Students in morning assembly outside the school building" width={800} height={480} />
+      <Image src={assemblyMorning} alt="Students gathered in rows for morning assembly on the school ground" width={800} height={480} />
     </figure>
   </section>
 
@@ -63,7 +62,8 @@ const achievements = [
 
 <style>
   .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
-  .mosaic img { border-radius: 20px; width: 100%; height: 100%; object-fit: cover; }
+  /* height must stay auto or it overrides the per-figure aspect-ratio below */
+  .mosaic img { border-radius: 20px; width: 100%; height: auto; object-fit: cover; }
   .mosaic figure { margin: 0; }
   .mosaic .tall img { aspect-ratio: 4/5; }
   .mosaic figure:not(.tall) img { aspect-ratio: 8/5; }

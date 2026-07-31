@@ -3,10 +3,10 @@ const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
 import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
-import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
-import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
-import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import campusPath from "../../../assets/photos/shared/campus-path-trees-01.jpg";
+import gardenPathway from "../../../assets/photos/shared/garden-pathway-01.jpg";
 import forestPathway from "../../../assets/photos/shared/forest-pathway-01.jpg";
+import studentsPlay from "../../../assets/photos/shared/students-play-01.jpg";
 
 const facilities = [
   "Bright, well-ventilated classrooms",
@@ -34,7 +34,7 @@ const facilities = [
   </section>
 
   <a class="immersive-band reveal" href={base + "learning-garden/admissions/"}>
-    <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1800} height={800} />
+    <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={1800} height={800} />
     <div class="immersive-scrim" aria-hidden="true"></div>
     <div class="immersive-caption">
       <span class="doorway-label">The Reception Office</span>
@@ -52,24 +52,24 @@ const facilities = [
       </ul>
     </div>
     <div class="facility-image">
-      <Image src={schoolGarden} alt="A green, well-tended school garden" width={800} height={640} />
+      <Image src={gardenPathway} alt="A palm-lined garden path across the campus" width={800} height={640} />
     </div>
   </section>
 
   <section class="mosaic content-wide reveal">
     <div class="mosaic-grid">
-      <Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} />
-      <Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} />
-      <Image src={forestPathway} alt="A quiet garden path on campus" width={700} height={520} />
+      <Image src={forestPathway} alt="A shaded path through dense greenery beside the campus" width={700} height={520} />
+      <Image src={studentsPlay} alt="Students playing together outdoors during break" width={700} height={520} />
+      <Image src={campusPath} alt="A tree-lined path leading through the school campus" width={700} height={520} />
     </div>
   </section>
 </Layout>
 
 <style>
   .facilities-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
-  .facility-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+  .facility-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 5/4; object-fit: cover; height: auto; }
   .mosaic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .mosaic-grid :global(img) { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic-grid :global(img) { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
 
   @media (max-width: 1024px) {
     .facilities-layout { grid-template-columns: 1fr; }

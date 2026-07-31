@@ -1,8 +1,8 @@
 ---
 import Layout from "../../../layouts/LittleExplorersLayout.astro";
 import { Image } from "astro:assets";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+import studentsPrimary from "../../../assets/photos/shared/students-primary-01.jpg";
 
 const activities = [
   "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
@@ -23,7 +23,7 @@ const activities = [
   </section>
 
   <section class="story-image">
-    <Image src={playgroundGround} alt="A green sports field used for games and athletics" width={1600} height={700} />
+    <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={1600} height={700} />
   </section>
 
   <section class="content-wide">
@@ -35,13 +35,13 @@ const activities = [
   </section>
 
   <section class="story-image">
-    <Image src={assemblyPrayer} alt="Students standing together for morning assembly" width={1600} height={700} />
+    <Image src={studentsPrimary} alt="A teacher with primary-school students in class" width={1600} height={700} />
   </section>
 </Layout>
 
 <style>
   .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .activity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
   .activity-grid li { background: #fff; border-radius: 16px; padding: 1.1em 0.5em; text-align: center; font-weight: 700; font-size: 0.95rem; box-shadow: 0 8px 20px -14px rgba(42,36,56,0.25); }

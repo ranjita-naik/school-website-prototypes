@@ -2,18 +2,19 @@
 const base = import.meta.env.BASE_URL;
 import Layout from "../../layouts/BrightFuturesLayout.astro";
 import { Image } from "astro:assets";
-import scienceExperiment from "../../assets/photos/shared/science-experiment-01.jpg";
-import computerLab from "../../assets/photos/shared/computer-lab-01.jpg";
-import teacherLecturing from "../../assets/photos/shared/teacher-lecturing-01.jpg";
-import playgroundGround from "../../assets/photos/shared/playground-ground-01.jpg";
-import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
+import computerLab from "../../assets/photos/shared/computer-lab-modern-01.jpg";
+import libraryStudy from "../../assets/photos/shared/library-study-01.jpg";
+import campusBuilding from "../../assets/photos/shared/campus-building-modern-01.jpg";
+import studentsDining from "../../assets/photos/shared/students-dining-01.jpg";
+import classroomBright from "../../assets/photos/shared/classroom-bright-01.jpg";
+import assemblyMorning from "../../assets/photos/shared/assembly-morning-01.jpg";
 
 const doorways = [
-  { name: "About the School", desc: "Who we are, and what we stand for.", img: assemblyPrayer, alt: "Students in morning assembly outside the school building", href: base + "bright-futures/about/", accent: "coral" },
-  { name: "Academics", desc: "Science, technology, arts, and sport — how it all fits together.", img: scienceExperiment, alt: "A teacher and student conducting a science experiment", href: base + "bright-futures/academics/", accent: "aqua" },
-  { name: "Student Life", desc: "The field, the clubs, and everything after the bell.", img: playgroundGround, alt: "A green sports field used for games", href: base + "bright-futures/student-life/", accent: "sun" },
-  { name: "Campus & Facilities", desc: "Labs, classrooms, and the spaces students learn in.", img: computerLab, alt: "The school's computer laboratory", href: base + "bright-futures/campus/", accent: "cobalt" },
-  { name: "Admissions", desc: "How to enquire, visit, and apply.", img: assemblyPrayer, alt: "Students gathered together at the school", href: base + "bright-futures/admissions/", accent: "coral" },
+  { name: "About the School", desc: "Who we are, and what we stand for.", img: studentsDining, alt: "Students sharing a meal during the lunch break", href: base + "bright-futures/about/", accent: "coral" },
+  { name: "Academics", desc: "Science, technology, arts, and sport — how it all fits together.", img: classroomBright, alt: "A bright classroom with colourful desks ready for the day", href: base + "bright-futures/academics/", accent: "aqua" },
+  { name: "Student Life", desc: "The field, the clubs, and everything after the bell.", img: assemblyMorning, alt: "Students gathered in rows for morning assembly on the school ground", href: base + "bright-futures/student-life/", accent: "sun" },
+  { name: "Campus & Facilities", desc: "Labs, classrooms, and the spaces students learn in.", img: computerLab, alt: "Rows of workstations in the school computer laboratory", href: base + "bright-futures/campus/", accent: "cobalt" },
+  { name: "Admissions", desc: "How to enquire, visit, and apply.", img: campusBuilding, alt: "The school building seen across its front lawn", href: base + "bright-futures/admissions/", accent: "coral" },
 ];
 ---
 
@@ -37,7 +38,7 @@ const doorways = [
     </div>
     <div class="hero-visual">
       <div class="hero-frame">
-        <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1100} height={1300} priority />
+        <Image src={libraryStudy} alt="Students studying at long desks in the school library" width={1100} height={1300} priority />
       </div>
     </div>
   </section>

@@ -2,9 +2,9 @@
 const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
-import classroomChildren from "../../../assets/photos/shared/classroom-children-tn-01.jpg";
-import scienceExperiment from "../../../assets/photos/shared/science-experiment-01.jpg";
-import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+import studentsSecondary from "../../../assets/photos/shared/students-secondary-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
+import classroomBright from "../../../assets/photos/shared/classroom-bright-01.jpg";
 
 const stages = [
   { stage: "Kindergarten", ages: "Ages 3–5", detail: "Play-led foundations in language, number, and social skill." },
@@ -57,7 +57,7 @@ const stages = [
     <div class="doorway-pair">
       <a class="doorway-card reveal" href={base + "learning-garden/student-life/"}>
         <div class="doorway-image">
-          <Image src={scienceExperiment} alt="A teacher and student conducting a science experiment" width={640} height={480} />
+          <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={640} height={480} />
         </div>
         <span class="doorway-label">Hands-On Learning</span>
         <h3>Science &amp; Discovery</h3>
@@ -66,7 +66,7 @@ const stages = [
       </a>
       <a class="doorway-card reveal" href={base + "learning-garden/campus/"}>
         <div class="doorway-image">
-          <Image src={computerLab} alt="Students working at computers in the school's computer laboratory" width={640} height={480} />
+          <Image src={classroomBright} alt="A bright classroom with colourful desks ready for the day" width={640} height={480} />
         </div>
         <span class="doorway-label">Where It Happens</span>
         <h3>Labs &amp; Classrooms</h3>
@@ -77,7 +77,7 @@ const stages = [
   </section>
 
   <section class="content-section reveal">
-    <Image src={classroomChildren} alt="Students focused at their desks in a classroom" width={900} height={620} style="border-radius: 24px; margin-bottom: 1.5rem;" />
+    <Image src={studentsSecondary} alt="Secondary-school students together outside the classroom block" width={900} height={620} style="border-radius: 24px; margin-bottom: 1.5rem;" />
     <p class="eyebrow">Achievements</p>
     <h2>Steady progress, celebrated quietly.</h2>
     <p>

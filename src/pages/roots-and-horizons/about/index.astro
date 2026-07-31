@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
 import { Image } from "astro:assets";
-import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
 
 const milestones = [
   { year: "1998", detail: "Green Valley Matriculation School founded with its first Primary section. (placeholder)" },
@@ -32,7 +32,7 @@ const values = [
   </section>
 
   <section class="story-image">
-    <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={1600} height={700} />
+    <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={1600} height={700} />
   </section>
 
   <section class="content-section">
@@ -75,7 +75,7 @@ const values = [
 
 <style>
   .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { height: 320px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { height: 320px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .timeline { margin-top: 2rem; border-top: 1px solid var(--line); }
   .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }

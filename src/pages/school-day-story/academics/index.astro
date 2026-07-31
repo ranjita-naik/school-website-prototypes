@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
 import { Image } from "astro:assets";
-import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+import eventPerformance from "../../../assets/photos/shared/event-performance-01.jpg";
 
 const stages = [
   { stage: "Kindergarten", classes: "Ages 3–5", detail: "Play-based foundations in language, number, and social skill." },
@@ -25,7 +25,7 @@ const stages = [
   </section>
 
   <section class="story-image">
-    <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1800} height={800} />
+    <Image src={eventPerformance} alt="Students singing together at a school celebration" width={1800} height={800} />
   </section>
 
   <section class="content-wide">
@@ -53,5 +53,5 @@ const stages = [
 
 <style>
   .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { border-radius: 8px; height: 320px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { border-radius: 8px; height: 320px; object-fit: cover; object-position: center 22%; width: 100%; }
 </style>

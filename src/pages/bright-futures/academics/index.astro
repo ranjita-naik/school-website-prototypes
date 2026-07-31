@@ -1,8 +1,8 @@
 ---
 import Layout from "../../../layouts/BrightFuturesLayout.astro";
 import { Image } from "astro:assets";
-import scienceExperiment from "../../../assets/photos/shared/science-experiment-01.jpg";
-import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
+import studentsDining from "../../../assets/photos/shared/students-dining-01.jpg";
+import computerLab from "../../../assets/photos/shared/computer-lab-modern-01.jpg";
 
 const pathways = [
   { name: "Science", desc: "Lab-based learning from Class 3 onward, with a working science club.", accent: "coral" },
@@ -60,11 +60,11 @@ const stages = [
 
   <section class="content-wide mosaic">
     <figure>
-      <Image src={scienceExperiment} alt="A teacher and student conducting a science experiment" width={900} height={650} />
+      <Image src={studentsDining} alt="Students sharing a meal during the lunch break" width={900} height={650} />
       <figcaption>Hands-on science, from Class 3</figcaption>
     </figure>
     <figure>
-      <Image src={computerLab} alt="Students working at computers in the school's computer laboratory" width={900} height={650} />
+      <Image src={computerLab} alt="Rows of workstations in the school computer laboratory" width={900} height={650} />
       <figcaption>Computer lab, Classes 3–10</figcaption>
     </figure>
   </section>
@@ -83,7 +83,7 @@ const stages = [
   .pathway-inner p { margin: 0; }
 
   .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .mosaic img { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic img { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
   .mosaic figcaption { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.6em; font-weight: 600; }
 
   @media (max-width: 1024px) {

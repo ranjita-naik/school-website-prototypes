@@ -218,6 +218,7 @@ const { title, description } = Astro.props;
         padding: 0.9rem 1.5rem;
       }
       .brand {
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         gap: 0.6rem;
@@ -226,7 +227,7 @@ const { title, description } = Astro.props;
         margin-right: auto;
       }
       .brand-mark { width: 34px; height: 34px; fill: none; stroke: var(--leaf-600); stroke-width: 2.5; }
-      .brand span { display: flex; flex-direction: column; line-height: 1.1; font-family: "Fraunces", serif; }
+      .brand span { display: flex; flex-direction: column; line-height: 1.1; font-family: "Fraunces", serif; white-space: nowrap; }
       .brand strong { font-size: 1.05rem; }
       .brand small { font-size: 0.7rem; color: var(--ink-soft); font-weight: 400; }
 
@@ -327,12 +328,15 @@ const { title, description } = Astro.props;
         position: relative;
         border-radius: 28px;
         overflow: hidden;
-        min-height: 340px;
+        min-height: 420px;
         margin-bottom: 1.5rem;
         isolation: isolate;
       }
       .immersive-band:hover { transform: translateY(-2px); }
-      .immersive-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+      /* This band is far wider than the source photographs. In the group shots
+         heads sit at roughly 6-14% of the frame, so the crop window has to start
+         above that or it clips them. */
+      .immersive-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 8%; z-index: -2; }
       .immersive-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,41,0.75), transparent 60%); z-index: -1; }
       .immersive-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 2.5rem; color: #fff; }
       .immersive-caption .doorway-label { color: var(--sun-400); }
@@ -480,7 +484,9 @@ const { title, description } = Astro.props;
         .footer-grid { grid-template-columns: 1fr 1fr; }
       }
 
-      @media (max-width: 720px) {
+      /* Five links, the CTA and a two-line wordmark need the full desktop
+         width; below that the collapsed nav takes over. */
+      @media (max-width: 1024px) {
         .nav-toggle { display: block; }
         .nav-links {
           position: absolute;
@@ -497,6 +503,9 @@ const { title, description } = Astro.props;
         .nav-links a { display: block; padding: 1em 1.5rem; }
         .nav-toggle-input:checked ~ .nav-links { max-height: 400px; }
         .nav-cta { display: none; }
+      }
+
+      @media (max-width: 720px) {
         .vine { display: none; }
         .doorway-pair { grid-template-columns: 1fr; }
         .doorway-grid-3 { grid-template-columns: 1fr; }

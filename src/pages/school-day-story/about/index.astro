@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
 import { Image } from "astro:assets";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
+import assemblyMorning from "../../../assets/photos/shared/assembly-morning-01.jpg";
 ---
 
 <Layout
@@ -18,7 +18,7 @@ import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg
   </section>
 
   <section class="story-image">
-    <Image src={assemblyPrayer} alt="Students standing together for morning assembly and prayer" width={1800} height={800} />
+    <Image src={assemblyMorning} alt="Students gathered in rows for morning assembly on the school ground" width={1800} height={800} />
   </section>
 
   <section class="content-section">
@@ -49,7 +49,7 @@ import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg
 
 <style>
   .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { border-radius: 8px; height: 340px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { border-radius: 8px; height: 340px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .pull-quote {
     font-family: "Lora", serif;

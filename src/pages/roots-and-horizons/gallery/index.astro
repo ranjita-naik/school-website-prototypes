@@ -1,24 +1,20 @@
 ---
 import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
 import { Image } from "astro:assets";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
-import classroomChildren from "../../../assets/photos/shared/classroom-children-tn-01.jpg";
-import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
-import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
-import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import assemblyTrees from "../../../assets/photos/shared/assembly-02.jpg";
+import campusGreen from "../../../assets/photos/shared/campus-green-01.jpg";
+import studentsProject from "../../../assets/photos/shared/students-project-work-01.jpg";
+import libraryStacks from "../../../assets/photos/shared/library-stacks-01.jpg";
+import libraryReading from "../../../assets/photos/shared/library-reading-01.jpg";
 import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
-import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
 
 const photos = [
-  { img: assemblyPrayer, alt: "Students standing together in morning assembly and prayer" },
-  { img: campusEntrance, alt: "Tree-lined school entrance gate" },
-  { img: classroomChildren, alt: "Students smiling and engaged at their desks in a classroom" },
-  { img: teacherLecturing, alt: "A teacher instructing students in a classroom" },
-  { img: scienceLab, alt: "School science and laboratory block" },
-  { img: classroomInterior, alt: "Open-corridor classroom block" },
-  { img: playgroundGround, alt: "A green sports field used for games" },
-  { img: schoolGarden, alt: "A green, well-tended school garden" },
+  { img: campusGreen, alt: "A green lawn and walkway between the school buildings" },
+  { img: assemblyTrees, alt: "Students lined up for morning assembly under the campus trees" },
+  { img: schoolGarden, alt: "The school garden path lined with flowering shrubs" },
+  { img: studentsProject, alt: "Students working together on a project at their desks" },
+  { img: libraryStacks, alt: "Bookshelves lining the school library" },
+  { img: libraryReading, alt: "Students reading together at a table in the school library" },
 ];
 ---
 
@@ -45,10 +41,10 @@ const photos = [
 </Layout>
 
 <style>
-  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--line); margin-bottom: 5rem; }
-  .gallery-grid :global(img) { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); margin-bottom: 5rem; }
+  .gallery-grid :global(img) { width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
 
   @media (max-width: 1024px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>

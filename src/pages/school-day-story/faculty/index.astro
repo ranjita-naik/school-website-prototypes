@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
 import { Image } from "astro:assets";
-import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
 
 const leadership = [
   { name: "Mrs. Lakshmi Narayanan", role: "Principal" },
@@ -22,7 +22,7 @@ const leadership = [
   </section>
 
   <section class="story-image">
-    <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1800} height={800} />
+    <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={1800} height={800} />
   </section>
 
   <section class="content-wide">
@@ -39,7 +39,7 @@ const leadership = [
 
 <style>
   .story-image { max-width: 980px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { border-radius: 8px; height: 300px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { border-radius: 8px; height: 300px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .leader-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
   .leader-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; text-align: center; }

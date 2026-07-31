@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
 import { Image } from "astro:assets";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
 
 const activities = [
   "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
@@ -23,7 +23,7 @@ const activities = [
   </section>
 
   <section class="story-image">
-    <Image src={playgroundGround} alt="A green sports field used for games and athletics" width={1600} height={700} />
+    <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={1600} height={700} />
   </section>
 
   <section class="content-section">
@@ -37,7 +37,7 @@ const activities = [
 
 <style>
   .story-image { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { height: 320px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { height: 320px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .two-col { columns: 2; column-gap: 2rem; margin-top: 1.5rem; }
   .two-col li { break-inside: avoid; margin-bottom: 0.4em; }

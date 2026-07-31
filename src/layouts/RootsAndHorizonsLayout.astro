@@ -27,7 +27,7 @@ const { title, description } = Astro.props;
     <div class="utility-strip">
       <span>Nagercoil, Tamil Nadu</span>
       <span class="utility-sep" aria-hidden="true">·</span>
-      <a href={base + "roots-and-horizons/parents/"}>Parent Portal</a>
+      <a href={base + "roots-and-horizons/parents/"}>Parent Resources</a>
       <span class="utility-sep" aria-hidden="true">·</span>
       <a href={base + "roots-and-horizons/contact/"}>Contact</a>
     </div>
@@ -163,14 +163,9 @@ const { title, description } = Astro.props;
       .nav-toggle span::after { position: absolute; top: 7px; }
       .nav-mobile-links { display: none; }
 
-      /* Hairline divider with lattice motif */
-      .hairline { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: center; }
-      .hairline::before, .hairline::after { content: ""; flex: 1; height: 1px; background: var(--line); align-self: center; }
-      .lattice { width: 22px; height: 22px; margin: 0 1rem; background:
-          linear-gradient(45deg, transparent 45%, var(--marigold-500) 45%, var(--marigold-500) 55%, transparent 55%),
-          linear-gradient(-45deg, transparent 45%, var(--marigold-500) 45%, var(--marigold-500) 55%, transparent 55%);
-        opacity: 0.7;
-      }
+      /* Hairline divider — a single uninterrupted rule, no centre ornament */
+      .hairline { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+      .hairline::before { content: ""; display: block; height: 1px; background: var(--line); }
 
       /* Page header (inner pages) */
       .page-hero { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.5rem 2.5rem; text-align: center; }
@@ -247,6 +242,10 @@ const { title, description } = Astro.props;
         .directory-row a { align-items: flex-start; gap: 1rem; }
         .directory-arrow { display: none; }
         .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .btn, .directory-row a, .nav-mobile-links { transition: none; }
       }
     </style>
 

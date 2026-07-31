@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
-import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
+import studentsSecondary from "../../../assets/photos/shared/students-secondary-01.jpg";
 
 const leadership = [
   { name: "Mrs. Lakshmi Narayanan", role: "Principal" },
@@ -24,7 +24,7 @@ const leadership = [
   </section>
 
   <section class="story-image">
-    <Image src={teacherLecturing} alt="A teacher instructing students in a classroom" width={1800} height={800} />
+    <Image src={studentsSecondary} alt="Secondary-school students together outside the classroom block" width={1800} height={800} />
   </section>
 
   <section class="content-wide">
@@ -51,7 +51,7 @@ const leadership = [
 
 <style>
   .story-image { max-width: 1240px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; width: 100%; }
+  .story-image :global(img) { border-radius: 28px; height: 320px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .leader-grid {
     display: grid;

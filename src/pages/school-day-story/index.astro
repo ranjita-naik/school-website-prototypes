@@ -3,19 +3,19 @@ const base = import.meta.env.BASE_URL;
 import Layout from "../../layouts/SchoolDayStoryLayout.astro";
 import { Image } from "astro:assets";
 import campusEntrance from "../../assets/photos/shared/campus-entrance-01.jpg";
-import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
-import teacherLecturing from "../../assets/photos/shared/teacher-lecturing-01.jpg";
-import playgroundHeritage from "../../assets/photos/shared/playground-heritage-01.jpg";
-import playgroundGround from "../../assets/photos/shared/playground-ground-01.jpg";
+import assemblyMorning from "../../assets/photos/shared/assembly-morning-01.jpg";
+import classroomBright from "../../assets/photos/shared/classroom-bright-01.jpg";
+import schoolGarden from "../../assets/photos/shared/school-garden-01.jpg";
+import sportsGymnastics from "../../assets/photos/shared/sports-gymnastics-01.jpg";
 import forestPathway from "../../assets/photos/shared/forest-pathway-01.jpg";
 
 const glimpses = [
-  { time: "7:45 AM", title: "Morning Arrival", tone: "morning", img: campusEntrance, alt: "Tree-lined school entrance in the early morning", text: "Gates open at a quarter to eight, gardens either side of the walk in.", href: base + "school-day-story/campus/", linkLabel: "Walk the campus" },
-  { time: "8:00 AM", title: "Assembly", tone: "morning", img: assemblyPrayer, alt: "Students gathered for morning assembly and prayer", text: "The whole school gathers for a few quiet minutes before the day divides into classrooms.", href: base + "school-day-story/about/", linkLabel: "Read our story" },
-  { time: "9:15 AM", title: "Classroom Learning", tone: "morning", img: teacherLecturing, alt: "A teacher instructing students in a classroom", text: "Subjects rotate through the morning, taught with room for questions.", href: base + "school-day-story/academics/", linkLabel: "See academics" },
-  { time: "12:30 PM", title: "Lunch & Friendship", tone: "midday", img: playgroundHeritage, alt: "Students together on the school grounds during a break", text: "Lunch is shared on the grounds — the day's loudest kind of learning: friendship.", href: base + "school-day-story/student-life/", linkLabel: "Student life" },
-  { time: "1:30 PM", title: "Sports & Play", tone: "afternoon", img: playgroundGround, alt: "A green sports field used for games and athletics", text: "The afternoon opens onto the field, and the day gets loud again.", href: base + "school-day-story/student-life/", linkLabel: "Student life" },
-  { time: "3:30 PM", title: "Reflection & Home", tone: "evening", img: forestPathway, alt: "A quiet garden path at the end of the day", text: "The day closes the way it opened — a walk past the trees, a little more than they knew that morning.", href: base + "school-day-story/admissions/", linkLabel: "Begin admissions" },
+  { time: "7:45 AM", title: "Morning Arrival", tone: "morning", img: campusEntrance, alt: "The school's entrance gate framed by trees", text: "Gates open at a quarter to eight, gardens either side of the walk in.", href: base + "school-day-story/campus/", linkLabel: "Walk the campus" },
+  { time: "8:00 AM", title: "Assembly", tone: "morning", img: assemblyMorning, alt: "Students gathered in rows for morning assembly on the school ground", text: "The whole school gathers for a few quiet minutes before the day divides into classrooms.", href: base + "school-day-story/about/", linkLabel: "Read our story" },
+  { time: "9:15 AM", title: "Classroom Learning", tone: "morning", img: classroomBright, alt: "A bright classroom with colourful desks ready for the day", text: "Subjects rotate through the morning, taught with room for questions.", href: base + "school-day-story/academics/", linkLabel: "See academics" },
+  { time: "12:30 PM", title: "Lunch & Friendship", tone: "midday", img: schoolGarden, alt: "The school garden path lined with flowering shrubs", text: "Lunch is shared on the grounds — the day's loudest kind of learning: friendship.", href: base + "school-day-story/student-life/", linkLabel: "Student life" },
+  { time: "1:30 PM", title: "Sports & Play", tone: "afternoon", img: sportsGymnastics, alt: "Students performing a gymnastics display on sports day", text: "The afternoon opens onto the field, and the day gets loud again.", href: base + "school-day-story/student-life/", linkLabel: "Student life" },
+  { time: "3:30 PM", title: "Reflection & Home", tone: "evening", img: forestPathway, alt: "A shaded path through dense greenery beside the campus", text: "The day closes the way it opened — a walk past the trees, a little more than they knew that morning.", href: base + "school-day-story/admissions/", linkLabel: "Begin admissions" },
 ];
 
 const quickLinks = [
@@ -34,7 +34,7 @@ const quickLinks = [
   transparentHero
 >
   <section class="hero" id="top">
-    <Image class="hero-bg" src={assemblyPrayer} alt="Students gathered for morning assembly outside the school building" width={2000} height={1250} priority />
+    <Image class="hero-bg" src={assemblyMorning} alt="Students gathered in rows for morning assembly on the school ground" width={2000} height={1250} priority />
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="eyebrow">Green Valley Matriculation School · Nagercoil</p>
@@ -89,9 +89,18 @@ const quickLinks = [
 
 <style>
   /* Hero */
-  .hero { position: relative; height: 78vh; min-height: 480px; margin-top: -68px; display: flex; align-items: flex-end; }
+  /* Tuck the hero under the transparent nav by the header's measured height
+     (see --sds-header-h in the layout script); the fallback matches the
+     header's resting height if the script has not run yet. */
+  .hero { position: relative; height: 78vh; min-height: 480px; margin-top: calc(-1 * var(--sds-header-h, 68px)); display: flex; align-items: flex-end; }
   .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(46,34,51,0.88), rgba(46,34,51,0.25) 55%, rgba(46,34,51,0.5)); }
+  /* Weighted toward the lower half, where the headline sits, so the type stays
+     legible against the bright sky in this photograph. */
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to top, rgba(38,26,43,0.94) 0%, rgba(38,26,43,0.82) 34%, rgba(38,26,43,0.5) 62%, rgba(38,26,43,0.3) 82%, rgba(38,26,43,0.52) 100%);
+  }
   .hero-content { position: relative; color: #fff; max-width: 720px; padding: 0 1.5rem 4rem; margin: 0 auto; width: 100%; box-sizing: border-box; }
   .hero-content :global(.eyebrow) { color: var(--mango-400); }
   .hero h1 { font-size: clamp(2.1rem, 4.5vw, 3.4rem); color: #fff; }
@@ -135,6 +144,8 @@ const quickLinks = [
   .link-row a:hover { border-color: var(--terracotta-600); }
 
   @media (max-width: 720px) {
-    .hero { height: auto; min-height: 420px; padding-top: 3rem; }
+    /* Clear the overlaid nav before the eyebrow starts, since the hero is
+       pulled up underneath it. */
+    .hero { height: auto; min-height: 420px; padding-top: calc(var(--sds-header-h, 68px) + 1.5rem); }
   }
 </style>

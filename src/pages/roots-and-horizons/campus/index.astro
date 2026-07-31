@@ -1,8 +1,8 @@
 ---
 import Layout from "../../../layouts/RootsAndHorizonsLayout.astro";
 import { Image } from "astro:assets";
-import classroomInterior from "../../../assets/photos/shared/classroom-interior-01.jpg";
-import scienceLab from "../../../assets/photos/shared/science-lab-01.jpg";
+import libraryStacks from "../../../assets/photos/shared/library-stacks-01.jpg";
+import campusGreen from "../../../assets/photos/shared/campus-green-01.jpg";
 import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
 
 const facilities = [
@@ -34,15 +34,15 @@ const facilities = [
   </section>
 
   <section class="content-wide mosaic">
-    <figure><Image src={classroomInterior} alt="Open-corridor classroom block" width={700} height={520} /></figure>
-    <figure><Image src={scienceLab} alt="School science and laboratory block" width={700} height={520} /></figure>
-    <figure><Image src={schoolGarden} alt="A green, well-tended school garden" width={700} height={520} /></figure>
+    <figure><Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={700} height={520} /></figure>
+    <figure><Image src={libraryStacks} alt="Bookshelves lining the school library" width={700} height={520} /></figure>
+    <figure><Image src={campusGreen} alt="A green lawn and walkway between the school buildings" width={700} height={520} /></figure>
   </section>
 </Layout>
 
 <style>
   .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); }
-  .mosaic :global(img) { width: 100%; height: 260px; object-fit: cover; }
+  .mosaic :global(img) { width: 100%; height: 260px; object-fit: cover; object-position: center 22%; }
   .mosaic figure { margin: 0; }
 
   @media (max-width: 720px) {

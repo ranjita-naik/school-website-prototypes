@@ -2,23 +2,19 @@
 import Layout from "../../../layouts/SchoolDayStoryLayout.astro";
 import { Image } from "astro:assets";
 import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
-import teacherLecturing from "../../../assets/photos/shared/teacher-lecturing-01.jpg";
-import playgroundHeritage from "../../../assets/photos/shared/playground-heritage-01.jpg";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
-import forestPathway from "../../../assets/photos/shared/forest-pathway-01.jpg";
+import campusPath from "../../../assets/photos/shared/campus-path-trees-01.jpg";
+import assemblyMorning from "../../../assets/photos/shared/assembly-morning-01.jpg";
+import eventPerformance from "../../../assets/photos/shared/event-performance-01.jpg";
+import sportsGymnastics from "../../../assets/photos/shared/sports-gymnastics-01.jpg";
 import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
-import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
 
 const photos = [
-  { img: campusEntrance, alt: "Tree-lined school entrance in the early morning" },
-  { img: assemblyPrayer, alt: "Students gathered for morning assembly and prayer" },
-  { img: teacherLecturing, alt: "A teacher instructing students in a classroom" },
-  { img: classroomChildrenTn2, alt: "Students reading and writing at their desks" },
-  { img: playgroundHeritage, alt: "Students together on the school grounds" },
-  { img: playgroundGround, alt: "A green sports field used for games and athletics" },
-  { img: schoolGarden, alt: "The school garden tended by students" },
-  { img: forestPathway, alt: "A quiet garden path at the end of the day" },
+  { img: campusPath, alt: "A tree-lined path leading through the school campus" },
+  { img: campusEntrance, alt: "The school's entrance gate framed by trees" },
+  { img: assemblyMorning, alt: "Students gathered in rows for morning assembly on the school ground" },
+  { img: eventPerformance, alt: "Students singing together at a school celebration" },
+  { img: schoolGarden, alt: "The school garden path lined with flowering shrubs" },
+  { img: sportsGymnastics, alt: "Students performing a gymnastics display on sports day" },
 ];
 ---
 
@@ -46,10 +42,10 @@ const photos = [
 
 <style>
   .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 5rem; }
-  .gallery-grid :global(img) { border-radius: 6px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .gallery-grid :global(img) { border-radius: 6px; width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
 
   @media (max-width: 1024px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 720px) {
     .gallery-grid { grid-template-columns: 1fr; }

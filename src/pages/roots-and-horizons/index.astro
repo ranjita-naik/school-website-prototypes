@@ -2,8 +2,8 @@
 const base = import.meta.env.BASE_URL;
 import Layout from "../../layouts/RootsAndHorizonsLayout.astro";
 import { Image } from "astro:assets";
-import assemblyPrayer from "../../assets/photos/shared/assembly-prayer-01.jpg";
-import classroomChildren from "../../assets/photos/shared/classroom-children-tn-01.jpg";
+import assemblyTrees from "../../assets/photos/shared/assembly-02.jpg";
+import studentsProject from "../../assets/photos/shared/students-project-work-01.jpg";
 
 const values = ["Integrity", "Discipline", "Compassion", "Excellence"];
 
@@ -35,11 +35,11 @@ const directory = [
       </div>
     </div>
     <div class="hero-image">
-      <Image src={assemblyPrayer} alt="Students standing together in morning assembly and prayer outside the school building" width={1400} height={1000} priority />
+      <Image src={assemblyTrees} alt="Students lined up for morning assembly under the campus trees" width={1400} height={1000} priority />
     </div>
   </section>
 
-  <div class="hairline" aria-hidden="true"><span class="lattice"></span></div>
+  <div class="hairline" aria-hidden="true"></div>
 
   <section class="welcome">
     <p class="eyebrow center">Founded 1998 <em>(placeholder)</em></p>
@@ -50,15 +50,17 @@ const directory = [
     <p class="center lede">
       Green Valley was founded on a simple belief: that a school's first duty is to be worth
       a family's trust — and that discipline and joy are not opposites, but partners.
+    </p>
+    <p class="center read-more">
       <a class="text-link" href={base + "roots-and-horizons/about/"}>Read our full story →</a>
     </p>
   </section>
 
-  <div class="hairline" aria-hidden="true"><span class="lattice"></span></div>
+  <div class="hairline" aria-hidden="true"></div>
 
   <section class="split-feature">
     <div class="split-image">
-      <Image src={classroomChildren} alt="Students smiling and engaged at their desks in a classroom" width={1000} height={1100} />
+      <Image src={studentsProject} alt="Students working together on a project at their desks" width={1000} height={1100} />
     </div>
     <div class="split-copy">
       <p class="eyebrow">Leadership</p>
@@ -71,7 +73,7 @@ const directory = [
     </div>
   </section>
 
-  <div class="hairline" aria-hidden="true"><span class="lattice"></span></div>
+  <div class="hairline" aria-hidden="true"></div>
 
   <section class="directory-section">
     <p class="eyebrow center">Where to Go Next</p>
@@ -100,13 +102,16 @@ const directory = [
   .hero-lede { color: var(--ink-soft); max-width: 44ch; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
   .hero-image { border: 1px solid var(--line); padding: 10px; background: #fff; }
-  .hero-image img { width: 100%; aspect-ratio: 4/3.4; object-fit: cover; }
+  /* Kept near-square so the hero row stays in proportion with the copy beside
+     it rather than towering over a short paragraph. */
+  .hero-image img { width: 100%; aspect-ratio: 4/3.05; object-fit: cover; object-position: center 58%; height: auto; }
 
   .welcome { max-width: 700px; margin: 4.5rem auto; padding: 0 1.5rem; }
   .welcome h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
   .value-line { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75em 1.5em; margin: 1.5rem 0; font-family: "Playfair Display", serif; font-size: 1.05rem; }
   .value-line li { position: relative; padding-right: 1.6em; }
   .value-line li:not(:last-child)::after { content: "·"; position: absolute; right: 0.5em; color: var(--marigold-500); }
+  .read-more { margin-top: 1.25rem; }
 
   .split-feature { max-width: 1000px; margin: 4.5rem auto; padding: 0 1.5rem; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3.5rem; align-items: center; }
   .split-image { border: 1px solid var(--line); padding: 10px; background: #fff; align-self: stretch; }

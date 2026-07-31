@@ -2,8 +2,8 @@
 const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
-import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg";
+import assemblyMorning from "../../../assets/photos/shared/assembly-morning-01.jpg";
+import schoolGarden from "../../../assets/photos/shared/school-garden-01.jpg";
 ---
 
 <Layout
@@ -20,7 +20,7 @@ import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg
   </section>
 
   <section class="story-image">
-    <Image src={assemblyPrayer} alt="Students standing together for morning assembly and prayer" width={1800} height={800} />
+    <Image src={assemblyMorning} alt="Students gathered in rows for morning assembly on the school ground" width={1800} height={800} />
   </section>
 
   <section class="content-section">
@@ -81,7 +81,7 @@ import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg
         <a class="text-link" href={base + "learning-garden/campus/"}>Walk the campus →</a>
       </div>
       <div class="glimpse-image">
-        <Image src={campusEntrance} alt="Tree-lined school entrance gate" width={900} height={700} />
+        <Image src={schoolGarden} alt="The school garden path lined with flowering shrubs" width={900} height={700} />
       </div>
     </div>
   </section>
@@ -89,7 +89,7 @@ import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg
 
 <style>
   .story-image { max-width: 1240px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .story-image > :global(img) { border-radius: 28px; height: 360px; object-fit: cover; width: 100%; }
+  .story-image > :global(img) { border-radius: 28px; height: 360px; object-fit: cover; object-position: center 22%; width: 100%; }
 
   .principal-card {
     background: var(--white);
@@ -119,7 +119,7 @@ import campusEntrance from "../../../assets/photos/shared/campus-entrance-01.jpg
 
   .campus-glimpse { margin-bottom: 5rem; }
   .glimpse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-  .glimpse-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 4/3.2; object-fit: cover; }
+  .glimpse-image :global(img) { border-radius: 24px; width: 100%; aspect-ratio: 4/3.2; object-fit: cover; height: auto; }
   .glimpse-copy h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
 
   @media (max-width: 1024px) {

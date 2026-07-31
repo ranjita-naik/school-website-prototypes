@@ -28,7 +28,7 @@ const circulars = [
   <section class="content-wide">
     <ul class="resource-grid">
       {resources.map((r) => (
-        <li class="resource-card">
+        <li class="resource-card" id={r.title.toLowerCase().replace(/\s+/g, "-")}>
           <h3>{r.title}</h3>
           <p>{r.detail}</p>
         </li>

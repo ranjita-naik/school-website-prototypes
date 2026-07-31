@@ -2,10 +2,10 @@
 const base = import.meta.env.BASE_URL;
 import Layout from "../../../layouts/LearningGardenLayout.astro";
 import { Image } from "astro:assets";
-import playgroundGround from "../../../assets/photos/shared/playground-ground-01.jpg";
-import assemblyPrayer from "../../../assets/photos/shared/assembly-prayer-01.jpg";
-import computerLab from "../../../assets/photos/shared/computer-lab-01.jpg";
-import classroomChildrenTn2 from "../../../assets/photos/shared/classroom-children-tn-02.jpg";
+import studentsPlay from "../../../assets/photos/shared/students-play-01.jpg";
+import assemblyMorning from "../../../assets/photos/shared/assembly-morning-01.jpg";
+import classroomBright from "../../../assets/photos/shared/classroom-bright-01.jpg";
+import studentsGroup from "../../../assets/photos/shared/students-group-01.jpg";
 
 const activities = [
   "Football", "Volleyball", "Athletics", "Yoga", "Music", "Dance",
@@ -27,7 +27,7 @@ const activities = [
   </section>
 
   <a class="immersive-band reveal" href={base + "learning-garden/campus/"}>
-    <Image src={playgroundGround} alt="A green sports field bordered by trees, used for play and games" width={1800} height={800} />
+    <Image src={studentsPlay} alt="Students playing together outdoors during break" width={1800} height={800} />
     <div class="immersive-scrim" aria-hidden="true"></div>
     <div class="immersive-caption">
       <span class="doorway-label">Open Fields</span>
@@ -55,9 +55,9 @@ const activities = [
 
   <section class="mosaic content-wide reveal">
     <div class="mosaic-grid">
-      <Image src={assemblyPrayer} alt="Students standing together for morning assembly" width={700} height={520} />
-      <Image src={computerLab} alt="Students working at computers in the school's computer laboratory" width={700} height={520} />
-      <Image src={classroomChildrenTn2} alt="Students at their desks reading and writing" width={700} height={520} />
+      <Image src={assemblyMorning} alt="Students gathered in rows for morning assembly on the school ground" width={700} height={520} />
+      <Image src={classroomBright} alt="A bright classroom with colourful desks ready for the day" width={700} height={520} />
+      <Image src={studentsGroup} alt="A group of students with their teacher on the school grounds" width={700} height={520} />
     </div>
   </section>
 </Layout>
@@ -79,7 +79,7 @@ const activities = [
     font-size: 0.95rem;
   }
   .mosaic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .mosaic-grid :global(img) { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .mosaic-grid :global(img) { border-radius: 20px; width: 100%; aspect-ratio: 4/3; object-fit: cover; height: auto; }
 
   @media (max-width: 1024px) {
     .activity-grid { grid-template-columns: repeat(3, 1fr); }
